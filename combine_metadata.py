@@ -1,0 +1,55 @@
+import pandas as pd
+
+# Import sample ID with station number
+stations = pd.read_excel(
+    "data/raw_files/DIC and S samples.xlsx", sheet_name="for_looks"
+)
+
+# Import all sheets from preliminary CTD bottle Excel file into one df
+ctd = pd.concat(
+    pd.read_excel(
+        "data/raw_files/Preliminary bottle data SSCTD SO289.xlsx", sheet_name=None
+    ),
+    ignore_index=True,
+)
+
+# Add station number to df
+df = ctd.merge(stations, how="inner", left_on="Label ID", right_on="Sample_n")
+
+# Drop useless columns
+useless_columns = ["Sample_n", "Latitude_N", "Longitude_E", "Depth_m_y"]
+df.drop(columns=useless_columns, inplace=True)
+
+# Rename columns
+rn = {"Label ID":"sample",
+      "Bottle_Number":"niskin",
+      "Longitude_deg_E":"longitude",
+      "Latitude_deg_N":"latitude",
+      "Depth_m_x":"depth",
+      "Turbidity_FTU":"turbidity",
+      "Oxygen_umolperkg":"oxygen",
+      "Salinity_PSU":"salinity",
+      "Temperature_oC":"temperature",
+      "Fluorescence_mgperm3":"fluorescence",
+      "Pressure_dbar":"pressure",
+      "Stn_n":"station"}
+df.rename(columns=rn, inplace=True)
+
+# Reorder columns
+df = df[[
+    "sample",
+    "station",
+    "niskin",
+    "latitude",
+    "longitude",
+    "depth",
+    "pressure",
+    "salinity",
+    "temperature",
+    "oxygen",
+    "fluorescence",
+    "turbidity"
+    ]]
+
+# Save as csv
+# df.to_csv("data/CTD_data.csv", index=False)
