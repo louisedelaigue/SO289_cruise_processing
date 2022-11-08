@@ -61,11 +61,18 @@ nuts = pd.read_excel(
     "data/raw_files/SO289_nutrient results_format_friendly.xlsx",
     sheet_name="SS-CTD",
     skiprows=[1],
-    na_values="<LOD"
+    na_values="<LOD",
 )
 
 # Drop useless nuts columns
-useless_columns = ["Station", "CTD-type", "Real\nDepth [m]", "Bottle no.", "TON", "Unnamed: 10"]
+useless_columns = [
+    "Station",
+    "CTD-type",
+    "Real\nDepth [m]",
+    "Bottle no.",
+    "TON",
+    "Unnamed: 10",
+]
 nuts.drop(columns=useless_columns, inplace=True)
 
 # Rename nuts columns
@@ -94,4 +101,4 @@ df["nitrate"] = df["nitrate"] / df["density"]
 df.sort_values(by=["station", "niskin"], inplace=True)
 
 # Save as csv
-df.to_csv("data/CTD_data.csv", index=False)
+df.to_csv("data/SO289_CTD_data.csv", index=False)
