@@ -18,12 +18,12 @@ ctd = pd.concat(
 df = ctd.merge(stations, how="inner", left_on="Label ID", right_on="Sample_n")
 
 # Drop useless columns
-useless_columns = ["Sample_n", "Latitude_N", "Longitude_E", "Depth_m_y"]
+useless_columns = ["Label ID", "Latitude_N", "Longitude_E", "Depth_m_y"]
 df.drop(columns=useless_columns, inplace=True)
 
 # Rename columns
 rn = {
-    "Label ID": "sample",
+    "Sample_n": "bottle",
     "Bottle_Number": "niskin",
     "Longitude_deg_E": "longitude",
     "Latitude_deg_N": "latitude",
@@ -41,7 +41,7 @@ df.rename(columns=rn, inplace=True)
 # Reorder columns
 df = df[
     [
-        "sample",
+        "bottle",
         "station",
         "niskin",
         "latitude",
@@ -77,7 +77,7 @@ nuts.drop(columns=useless_columns, inplace=True)
 
 # Rename nuts columns
 rn = {
-    "Sample No.:": "sample",
+    "Sample No.:": "bottle",
     "Phosphate": "phosphate",
     "Nitrite": "nitrite",
     "Silicate": "silicate",
@@ -86,7 +86,7 @@ rn = {
 nuts.rename(columns=rn, inplace=True)
 
 # Add nutrients to metadata
-df = df.merge(nuts, how="inner", on="sample")
+df = df.merge(nuts, how="inner", on="bottle")
 
 # Calculate density of each sample
 df["density"] = calk.density.seawater_1atm_MP81(23, df["salinity"])
