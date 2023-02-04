@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<export type="datalog">
+   <order time="1649027193">
+      <output exportevents="false" limitfilesize="false" type="CSV" user="cggalley">SMB_data_galley</output>
+   </order>
+   <description>
+      <time filtered="true">
+         <starttime>1645617068</starttime>
+         <endtime>1648986668</endtime>
+         <interval displayunit="s">1000</interval>
+      </time>
+      <fileformat datetimeformat="YYYY/MM/DD HH:mm:ss" decimalsymbol="." endofrecordmarker="\n" fillvalue="false" headerrow="true" separator=","/>
+      <channellist errorvaluealphanumeric=" " errorvaluenumeric="9" fittoformat="false" includeinvalidvalues="false" skipinvalidlines="false">
+         <channel angle="none" fieldwidth="0" format="1.23" max="false" mean="false" meanvalidity="false" min="false" precision="3" samples="false" spot="true" stddev="false" valuevalidity="false" variance="false">SMB.RSSMB.Chl</channel>
+         <channel angle="none" fieldwidth="0" format="std_time" max="false" mean="false" meanvalidity="false" min="false" precision="0" samples="false" spot="true" stddev="false" valuevalidity="false" variance="false">SMB.RSSMB.Delay</channel>
+         <channel angle="none" fieldwidth="0" format="54° 12.345' N" max="false" mean="false" meanvalidity="false" min="false" precision="3" samples="false" spot="true" stddev="false" valuevalidity="false" variance="false">SMB.RSSMB.Latitude</channel>
+         <channel angle="none" fieldwidth="0" format="154° 12.345' E" max="false" mean="false" meanvalidity="false" min="false" precision="3" samples="false" spot="true" stddev="false" valuevalidity="false" variance="false">SMB.RSSMB.Longitude</channel>
+         <channel angle="none" fieldwidth="0" format="1.23" max="false" mean="false" meanvalidity="false" min="false" precision="4" samples="false" spot="true" stddev="false" valuevalidity="false" variance="false">SMB.RSSMB.Sal_SBE45</channel>
+         <channel angle="none" fieldwidth="0" format="12/31/1999 23:59:01" max="false" mean="false" meanvalidity="false" min="false" precision="1" samples="false" spot="true" stddev="false" valuevalidity="false" variance="false">SMB.RSSMB.Time</channel>
+         <channel angle="none" fieldwidth="0" format="1.23" max="false" mean="false" meanvalidity="false" min="false" precision="4" samples="false" spot="true" stddev="false" valuevalidity="false" variance="false">SMB.RSSMB.T_SBE38</channel>
+      </channellist>
+   </description>
+</export>
