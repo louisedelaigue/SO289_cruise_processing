@@ -22,6 +22,10 @@ ax.scatter(df["datenum"],
 
 ax.set_title("pH")
 
+# Save plot
+plt.tight_layout()
+plt.savefig("./figs/uws_S02_plot_pH.png", dpi=300)
+
 # === SALINITY
 # Create figure
 fig, ax = plt.subplots(dpi=300, figsize=(6, 4))
@@ -36,6 +40,10 @@ ax.scatter(df["datenum"],
 
 ax.set_title("salinity")
 
+# Save plot
+plt.tight_layout()
+plt.savefig("./figs/uws_S02_plot_sal.png", dpi=300)
+
 # === TEMPERATURE
 # Create figure
 fig, ax = plt.subplots(dpi=300, figsize=(6, 4))
@@ -49,3 +57,7 @@ ax.scatter(df["datenum"],
            zorder=1)
 
 ax.set_title("temperature")
+
+# Save plot
+plt.tight_layout()
+plt.savefig("./figs/uws_S02_plot_temp.png", dpi=300)

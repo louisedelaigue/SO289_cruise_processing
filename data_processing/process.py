@@ -11,6 +11,6 @@ def raw_process(datasheet_filepath, txt_filepath, smb_filepath):
     return df
 
 def bgc_process(df):
-    dat_sal = salinity(df)
-    dat_alk = alkalinity(dat_sal)
+    # dat_sal = salinity(df)
+    dat_alk = alkalinity(df)
     return dat_alk
