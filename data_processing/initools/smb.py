@@ -86,14 +86,19 @@ def smb(data, smb_filepath):
           return datetime.datetime.strptime(date_to_convert, '%Y/%m/%d %H:%M:%S').strftime('%d-%m-%Y %H:%M:%S')
     smb['date_time'] = smb['date_time'].apply(date_convert)
     
+    # Make sure datetime is in pandas datetime
+    smb["date_time"] = pd.to_datetime(smb["date_time"])
+    
     # convert temperature and salinity columns to numeric
     smb.SBE38_water_temp = pd.to_numeric(smb.SBE38_water_temp)
     smb.SBE45_sal = pd.to_numeric(smb.SBE45_sal)
       
     # merge SMB w/ PyroSci data
-    df = data.merge(right=smb, 
-                    how='inner',
-                    on=['date_time'])
+    # df = data.merge(right=smb, 
+    #                 how='inner',
+    #                 on=['date_time'])
+    
+    df = pd.merge_asof(data, smb, on='date_time', direction="nearest", tolerance=pd.Timedelta(minutes=15))
         
     # only keep datapoints where the difference between cell and outside temp is 
     # less than 1 degree Celcius
