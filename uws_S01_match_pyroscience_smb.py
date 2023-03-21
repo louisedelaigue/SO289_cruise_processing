@@ -5,3 +5,6 @@ df = tb.raw_process("data/uws/SO289_UWS_continuous_file_list.xlsx", "data/uws/UW
 
 # Save pre BGC processing data
 df.to_csv('./data/processing/uws_S01_match_pyroscience_smb.csv', index=False)
+
+
+# df = tb.read_pyrosci("data/uws/SO289_UWS_continuous_file_list.xlsx", "data/uws/UWS")

@@ -29,7 +29,7 @@ glodap = glodap[L]
 L = (glodap["tco2f"]==2) & (glodap["talkf"]==2)
 glodap = glodap[L]
 
-# Map location of scatterpoints
+#%% Map location of scatterpoints
 # Visualise the dataset
 fig = plt.figure(dpi=300, figsize=(8, 4))
 ax = fig.add_subplot(projection=ccrs.PlateCarree())
@@ -42,7 +42,7 @@ ax.scatter(
     s=10,
     label="GLODAPv2.2022",
     marker=".",
-    zorder=1,
+    zorder=0,
     transform=ccrs.PlateCarree()
 )
 
@@ -53,7 +53,9 @@ ax.scatter(df["Longitude"][L],
              c="xkcd:cyan",
              label="$SO289_{VINDTA-corr}$",
              edgecolor="none",
-             zorder=0)
+             zorder=1,
+             transform=ccrs.PlateCarree()
+             )
 
 L = (df["TA_only"].notnull()) & (df["DIC_only"].notnull())
 ax.scatter(df["Longitude"][L],
@@ -62,7 +64,9 @@ ax.scatter(df["Longitude"][L],
              c="xkcd:strawberry",
              label="$SO289_{QuAAtro}$",
              edgecolor="none",
-             zorder=1)
+             zorder=2,
+             transform=ccrs.PlateCarree()
+             )
 
 # Add land areas
 ax.add_feature(
@@ -80,7 +84,7 @@ ax.gridlines(alpha=0.3, draw_labels=True, crs=ccrs.PlateCarree())
 # Save figure
 plt.tight_layout()
 plt.savefig("./figs/ds_S03_compare_to_GLODAP_map.png", dpi=300)
-
+#%%
 # Scatter GLODAP and SO289 DIC
 # Create figure
 fig, ax = plt.subplots(ncols=2, dpi=300, figsize=(8, 4))

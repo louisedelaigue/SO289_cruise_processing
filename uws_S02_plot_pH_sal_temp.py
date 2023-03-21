@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # Load pre-processed dataframe including both Pyroscience and SMB data
-df = pd.read_csv('./data/processing/preprocessing_uws_data.csv')
+# df = pd.read_csv('./data/processing/preprocessing_uws_data.csv')
+df = pd.read_csv('./data/processing/uws_S01_match_pyroscience_smb.csv')
 
 # Create datenum column
 df["datenum"] = mdates.date2num(df["date_time"])

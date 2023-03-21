@@ -87,7 +87,8 @@ def smb(data, smb_filepath):
     smb['date_time'] = smb['date_time'].apply(date_convert)
     
     # Make sure datetime is in pandas datetime
-    smb["date_time"] = pd.to_datetime(smb["date_time"])
+    smb["date_time"] = pd.to_datetime(smb["date_time"], format="%d-%m-%Y %H:%M:%S")
+    data["date_time"] = pd.to_datetime(data["date_time"], format="%d-%m-%Y %H:%M:%S")
     
     # convert temperature and salinity columns to numeric
     smb.SBE38_water_temp = pd.to_numeric(smb.SBE38_water_temp)
@@ -98,6 +99,9 @@ def smb(data, smb_filepath):
     #                 how='inner',
     #                 on=['date_time'])
     
+
+    data = data.sort_values(by=['date_time']) 
+    smb = smb.sort_values(by=['date_time']) 
     df = pd.merge_asof(data, smb, on='date_time', direction="nearest", tolerance=pd.Timedelta(minutes=15))
         
     # only keep datapoints where the difference between cell and outside temp is 

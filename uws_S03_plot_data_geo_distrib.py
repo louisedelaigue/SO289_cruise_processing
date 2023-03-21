@@ -3,7 +3,8 @@ from matplotlib import pyplot as plt
 from cartopy import crs as ccrs, feature as cfeature
 
 # Load pre-processed dataframe including both Pyroscience and SMB data
-df = pd.read_csv('./data/processing/preprocessing_uws_data.csv')
+# df = pd.read_csv('./data/processing/preprocessing_uws_data.csv')
+df = pd.read_csv('./data/processing/uws_S01_match_pyroscience_smb.csv')
 
 # Visualise the dataset
 fig = plt.figure(dpi=300, figsize=(11, 4))
@@ -37,7 +38,7 @@ ax.add_feature(
 )
 
 # Axis settings
-ax.set_extent([180, 100, -80, 0]) # east west south noth
+ax.set_extent([-180, 180, -80, 0]) # east west south north
 ax.gridlines(alpha=0.3, draw_labels=True, crs=ccrs.PlateCarree())
 
 # Save figure
