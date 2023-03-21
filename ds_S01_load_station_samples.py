@@ -79,4 +79,5 @@ dic = dic.rename(columns={"DIC":"DIC_only"})
 # Add DIC only to CTD data
 ctd = ctd.merge(dic, on="bottle", how="outer")
 
-# NOW FORMAT
+# Save as .csv
+ctd.to_csv('data/SO289_CTD_data_TA_DIC.csv', index=False)
