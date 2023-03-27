@@ -2,7 +2,7 @@ import pandas as pd
 import PyCO2SYS as pyco2
 
 # Import CTD data post-R2CO2 processing
-df = pd.read_csv("data/processing/ds_S01_match_TA_DIC_only.py")
+df = pd.read_csv("data/processing/sub_S01_match_TA_DIC_only.csv")
 
 # Calculate pH total from TA and DIC
 df["pH_total_est_TA_DIC"] = pyco2.sys(
@@ -16,4 +16,4 @@ df["pH_total_est_TA_DIC"] = pyco2.sys(
     )["pH_total"]
 
 # Save to .csv
-df.to_csv("data/processing/ds_S02_calculate_pH_total", index=False)
+df.to_csv("data/processing/sub_S02_calculate_pH_total.csv", index=False)

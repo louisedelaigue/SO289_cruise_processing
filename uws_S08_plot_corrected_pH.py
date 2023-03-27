@@ -6,7 +6,7 @@ import matplotlib.dates as mdates
 df = pd.read_csv('data/processing/uws_S07_correct_pH.csv')
 
 # Import subsamples
-subsamples = pd.read_csv('data/processing/ds_S02_calculate_pH_total')
+subsamples = pd.read_csv('data/processing/sub_S02_calculate_pH_total.csv')
 
 # Check that datetime colums are datetime objects
 df['date_time'] = pd.to_datetime(df['date_time'])
@@ -21,7 +21,7 @@ subsamples["datenum"] = mdates.date2num(subsamples["date_time"])
 fig, ax = plt.subplots(dpi=300, figsize=(6, 4))
       
 ax.scatter(df["date_time"],
-           df["pH_cell"],
+           df["pH_insitu_ta_est"],
            s=1,
            # alpha=0.4,
            c="r",

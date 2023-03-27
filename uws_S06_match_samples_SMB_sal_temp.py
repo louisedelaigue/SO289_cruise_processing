@@ -1,5 +1,4 @@
 import pandas as pd
-import datetime, re
 
 # Import UWS subsample list
 samples = pd.read_csv("data/list_uws_samples.csv")

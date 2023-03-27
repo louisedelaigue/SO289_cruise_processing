@@ -1,4 +1,5 @@
 import pandas as pd, numpy as np
+import calkulate as calk
 
 # Load CTD data
 df = pd.read_csv('data/SO289_CTD_data_TA_DIC.csv')
@@ -8,6 +9,12 @@ df = df.dropna(how="any", subset=["station"])
 
 # Only keep rows with TA/DIC data
 df = df.dropna(how='all', subset=['alkalinity', 'dic_corrected', 'TA_only', 'DIC_only'])
+
+# Calculate density of each sample at lab temperature (= 23 deg C) and sample salinity
+df['density'] = calk.density.seawater_1atm_MP81(23, df['salinity'])
+
+# Convert from umol/L to umol/kg for DIC only (K. Bakker lab analysis)
+df['DIC_only'] = df['DIC_only'] / df['density']
 
 # Remove "SO289" from station and create a cast column
 df["station"] = df["station"].astype(str)

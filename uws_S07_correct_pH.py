@@ -5,7 +5,7 @@ from scipy.interpolate import PchipInterpolator
 df = pd.read_csv('data/processing/uws_S05_estimate_alkalinity.csv')
 
 # Import subsamples
-subsamples = pd.read_csv('data/processing/ds_S02_calculate_pH_total')
+subsamples = pd.read_csv('data/processing/sub_S02_calculate_pH_total.csv')
 
 # Convert columns to datetime objects
 df['date_time'] = pd.to_datetime(df['date_time'])
@@ -42,9 +42,16 @@ interp_obj = PchipInterpolator(subsamples['date_time'], subsamples['diff'], extr
 df['pchip_pH_difference'] = interp_obj(df['date_time'])
 
 # === CORRECTION OF pH CONTINUOUS DATA
-# Correct pH(optode) using PCHIP values
-df['pH_optode_corrected'] = df['pH_insitu_ta_est'] - df['pchip_pH_difference']
-
+# Correct pH(optode) using PCHIP values - this depends on the filename
+# because some points above or below subsamples
+L = df["filename"] == "2022-02-24_221145_SO289"
+df.loc[L, 'pH_optode_corrected'] = df['pH_insitu_ta_est'] + df['pchip_pH_difference']
+  
+L = df["filename"] == "2022-02-28_230025"  
+df.loc[L, 'pH_optode_corrected'] = df['pH_insitu_ta_est'] + df['pchip_pH_difference']
+    
+L = df["filename"] == "2022-03-24_003629_SO289_part_2"
+df.loc[L, 'pH_optode_corrected'] = df['pH_insitu_ta_est'] - df['pchip_pH_difference']
 
 # === SIMPLE MOVING AVERAGE
 # Compute simple moving average (SMA) over period of 30 minutes

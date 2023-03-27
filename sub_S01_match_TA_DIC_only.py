@@ -1,4 +1,5 @@
-import pandas as pd, numpy as np
+import pandas as pd
+import calkulate as calk
 
 # === ALKALINITY SAMPLES
 # Import CTD data post-R2CO2 processing
@@ -53,5 +54,11 @@ df = df[[
     "DIC"
     ]]
 
+# Calculate density of each sample at lab temperature (= 23 deg C) and sample salinity
+df['density'] = calk.density.seawater_1atm_MP81(23, df['SBE45_sal'])
+
+# Convert from umol/L to umol/kg for DIC only (K. Bakker lab analysis)
+df['DIC'] = df['DIC'] / df['density']
+
 # Save to .csv
-df.to_csv("data/processing/ds_S01_match_TA_DIC_only.py", index=False)
+df.to_csv("data/processing/sub_S01_match_TA_DIC_only.csv", index=False)
