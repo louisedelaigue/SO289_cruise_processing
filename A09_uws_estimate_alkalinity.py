@@ -1,3 +1,6 @@
+# This script estimates alkalinity in the South Pacific Ocean for
+# underway pH data
+
 import pandas as pd
 import processing_scripts as ps
 

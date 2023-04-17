@@ -1,3 +1,5 @@
+# This script combines all discrete samples
+
 import pandas as pd
 
 # Load results from lab analysis for TA and DIC

@@ -1,3 +1,7 @@
+# This script corrects DIC from A02 as there is a drift in the coulometer
+# Drift correction is corrected using a PCHIP through the drift in NUTS
+# analysis throughout the day
+
 import pandas as pd
 from scipy.interpolate import PchipInterpolator
 from matplotlib import pyplot as plt

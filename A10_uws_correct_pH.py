@@ -1,3 +1,9 @@
+# This script corrects continuous underway pH using an approach similar to
+# the DIC drift correction, with a PCHIP through all pH difference
+# in between pH(optode) and pH(subsamples), the latter calculated from
+# TA/DIC 
+
+
 import pandas as pd, numpy as np
 from scipy.interpolate import PchipInterpolator
 

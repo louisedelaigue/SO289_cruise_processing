@@ -1,3 +1,6 @@
+# This script combines TA only analysis results with DIC only results
+# from the QuAAtro
+
 import pandas as pd
 import calkulate as calk
 import PyCO2SYS as pyco2

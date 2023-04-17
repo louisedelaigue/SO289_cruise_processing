@@ -1,3 +1,7 @@
+# This script uses subscripts to open and combine Pyroscience files 
+# from the optode plugged into the underway, then matches the optode pH
+# to the SMB salinograph data using datetime
+
 import processing_scripts as ps
 
 # Import raw continuous optode measurements (optional: process it // time-consuming)

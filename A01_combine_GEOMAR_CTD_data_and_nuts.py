@@ -1,3 +1,6 @@
+# This script combines data received by GEOMAR - CTD and nutrients
+# analyzed on board
+
 import pandas as pd
 import calkulate as calk
 

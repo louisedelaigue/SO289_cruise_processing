@@ -1,3 +1,5 @@
+# This script looks at massive pH drifts to remove bad pH data
+
 import pandas as pd
 from matplotlib import pyplot as plt
 import matplotlib.dates as mdates

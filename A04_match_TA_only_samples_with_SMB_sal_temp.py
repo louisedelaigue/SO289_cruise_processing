@@ -1,3 +1,6 @@
+# This script grabs data from the SMB underway thermosalinograph and
+# matches it back with TA only samples (in 150 mL HDPE plastic bottles)
+
 import pandas as pd
 
 # Import UWS subsample list

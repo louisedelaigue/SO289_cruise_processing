@@ -1,3 +1,5 @@
+# This script processes TA only results from the VINDTA
+
 import pandas as pd, numpy as np, koolstof as ks, calkulate as calk
 import matplotlib.dates as mdates
 

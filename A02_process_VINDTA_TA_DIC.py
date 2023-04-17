@@ -1,3 +1,6 @@
+# This script processes bottle TA/DIC (250 mL) for both SO289 and 64PE503
+# but at the end only keeps SO289 results
+
 import numpy as np, pandas as pd, koolstof as ks, calkulate as calk
 from koolstof import vindta as ksv
 from pandas.tseries.offsets import DateOffset
