@@ -246,28 +246,42 @@ dbs["file_path"] = "data/vindta/TA_DIC/64PE503_SO289_2022/"
 
 # Assign TA acid batches
 dbs["analysis_batch"] = 0
+
+# For October month
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 11) & (dbs["analysis_datetime"].dt.month == 10),
+    (dbs["analysis_datetime"].dt.day >= 11) & (dbs["analysis_datetime"].dt.day < 20) & (dbs["analysis_datetime"].dt.month == 10),
     "analysis_batch",
 ] = 1
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 20) & (dbs["analysis_datetime"].dt.month == 10),
+    (dbs["analysis_datetime"].dt.day >= 20) & (dbs["analysis_datetime"].dt.day < 28) & (dbs["analysis_datetime"].dt.month == 10),
     "analysis_batch",
 ] = 2
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 28) & (dbs["analysis_datetime"].dt.month >= 10),
+    (dbs["analysis_datetime"].dt.day >= 28) & (dbs["analysis_datetime"].dt.month == 10),
     "analysis_batch",
 ] = 3
 
+# For November month
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 11) & (dbs["analysis_datetime"].dt.month >= 11),
+    (dbs["analysis_datetime"].dt.day < 4) & (dbs["analysis_datetime"].dt.month == 11),
+    "analysis_batch",
+] = 3
+dbs.loc[
+    (dbs["analysis_datetime"].dt.day >= 4) & (dbs["analysis_datetime"].dt.day < 11) & (dbs["analysis_datetime"].dt.month == 11),
     "analysis_batch",
 ] = 4
-
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 20) & (dbs["analysis_datetime"].dt.month >= 11),
+    (dbs["analysis_datetime"].dt.day >= 11) & (dbs["analysis_datetime"].dt.day < 19) & (dbs["analysis_datetime"].dt.month == 11),
     "analysis_batch",
 ] = 5
+dbs.loc[
+    (dbs["analysis_datetime"].dt.day >= 19) & (dbs["analysis_datetime"].dt.day < 24) & (dbs["analysis_datetime"].dt.month == 11),
+    "analysis_batch",
+] = 6
+dbs.loc[
+    (dbs["analysis_datetime"].dt.day >= 24) & (dbs["analysis_datetime"].dt.month == 11),
+    "analysis_batch",
+] = 7
 
 # Select which TA CRMs to use/avoid for calibration
 dbs["reference_good"] = ~np.isnan(dbs.alkalinity_certified)

@@ -1,5 +1,6 @@
-import pandas as pd, numpy as np
+import pandas as pd
 import calkulate as calk
+from datetime import datetime
 
 # Load CTD data
 df = pd.read_csv("data/processing/SO289_CTD_data_TA_DIC_combined.csv")
@@ -35,6 +36,12 @@ df["second"] = [str(s).zfill(2) if len(s)<2 else str(s) for s in df["second"]]
 
 df["time"] = df["hour"] + ":" + df["minute"] + ":" + df["second"]
 
+# Add flag columns for TA and DIC
+df["TA_flag"] = 2
+df["DIC_flag"] = 2
+df["TA_ONLY_flag"] = 2
+df["DIC_ONLY_flag"] = 2
+
 # Rename columns
 rn = {
       "station":"Station_ID",
@@ -49,12 +56,16 @@ rn = {
       "depth":"Depth",
       "temperature":"CTDTEMP_ITS90",
       "salinity":"CTDSAL_PSS78",
+      "alkalinity":"TA",
+      "dic_corrected":"DIC",
+      "TA_only":"TA_ONLY",
+      "DIC_only":"DIC_ONLY"
       }
 
 df = df.rename(columns=rn)
 
 # Add missing columns
-df["EXPOCODE"] = np.nan
+df["EXPOCODE"] = "06S220220218"
 df["Cruise_ID"] = "SO289"
 
 # Keep and order columns
@@ -73,11 +84,84 @@ df = df[[
     "Depth",
     "CTDTEMP_ITS90",
     "CTDSAL_PSS78",
-    "alkalinity",
-    "TA_only",
-    "dic_corrected",
-    "DIC_only"
+    "TA",
+    "TA_flag",
+    "TA_ONLY",
+    "TA_ONLY_flag",
+    "DIC",
+    "DIC_flag",
+    "DIC_ONLY",
+    "DIC_ONLY_flag"
     ]]
 
-# Save as .csv
-df.to_csv("data/_results/SO289_CTD_TA_DIC.csv", index=False)
+# Fill missing values
+df = df.fillna(-999)
+
+# Add row for units
+units = {
+    "EXPOCODE":"n.a.",
+    "Cruise_ID":"n.a",
+    "Station_ID":"n.a.",
+    "Niskin_ID":"n.a.",
+    "Year_UTC":"n.a.",
+    "Month_UTC":"n.a.",
+    "Day_UTC":"n.a.",
+    "Time_UTC":"n.a.",
+    "Latitude":"decimal_deg",
+    "Longitude":"decimal_deg",
+    "CTDPRES":"[bars]",
+    "Depth":"[m]",
+    "CTDTEMP_ITS90":"[deg_C]",
+    "CTDSAL_PSS78":"n.a.",
+    "TA":"[umol/kg]",
+    "TA_flag":"n.a.",
+    "TA_ONLY":"[umol/kg]",
+    "TA_ONLY_flag":"n.a.",
+    "DIC":"[umol/kg]",
+    "DIC_flag":"n.a.",
+    "DIC_ONLY":"[umol/kg",
+    "DIC_ONLY_flag":"n.a."
+}
+
+# Store the current column names
+# If columns are multi-index, get the first level. Otherwise, get the column name.
+current_columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
+
+# Add units as a new row at the top
+df.loc[-1] = [units.get(col, 'n.a.') for col in current_columns]
+df.index = df.index + 1  # Shift index
+df = df.sort_index()  # Sort by index to get the new row on top
+
+# Reset column headers
+df.columns = current_columns
+
+# Add information lines
+info_lines = [
+    "# File last updated on: {}".format(datetime.today().strftime('%d %B %Y')),														
+    "# File prepared by: Louise Delaigue (Royal Netherlands Institute for Sea Research)", 														
+    "# For questions please send a message to:  louise.delaigue@nioz.nl or matthew.humphreys@nioz.nl",														
+    "# EXPOCODE: 06S220220218",														
+    "# Chief Scientist: Dr. Eric P. Achterberg (GEOMAR)",														
+    "# Region: South Pacific Ocean (GEOTRACES GP21)",													
+    "# SHIP: R/V Sonne",														
+    "# Cruise:  SO289",														
+    "# Shipboard contact: sonne@sonne.briese-research.de",														
+    "# Notes: code for processing SO289 data can be found at doi",																											
+	"# DIC: Who - L. Delaigue; Status -  Final",																												
+    "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batches #189 #195 #198)",																												
+    "# TA: Who - L. Delaigue; Status -  Final	",																											
+    "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batch #189 #195 #198)",						
+    "# Notes: TA and DIC were both measured at the same time from 250 mL borosilicate glass bottles",
+    "# Notes: TA_ONLY and DIC_ONLY were sampled and measured separatly from 150 mL HDPE plastic bottles on a VINDTA 3C and 12 mL exetainer vials respectively on a Seal QuAAtro gas-segmented continuous flow analyser",
+    "#  "
+]
+
+filename = "data/_results/SO289_CTD_discrete_samples_V1.csv"
+
+# Write the info lines
+with open(filename, 'w') as f:
+    for line in info_lines:
+        f.write(line + '\n')
+
+# Append the dataframe
+df.to_csv(filename, mode='a', index=False)

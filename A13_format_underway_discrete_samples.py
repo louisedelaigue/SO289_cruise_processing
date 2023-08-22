@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+from datetime import datetime
 
 # Load discrete samples data
 df = pd.read_csv("data/_results/SO289_underway_TA_DIC_only_results.csv")
@@ -45,7 +46,7 @@ rn = {
 df = df.rename(columns=rn)
 
 # Add missing columns
-df["EXPOCODE"] = "TBD"
+df["EXPOCODE"] = "06S220220218"
 df["Cruise_ID"] = "SO289"
 
 # Keep and order columns
@@ -69,5 +70,32 @@ df = df[
 # Fill missing values
 df = df.fillna(-999)
 
-# Save as .csv
-df.to_csv("data/_results/SO289_underway_TA_DIC.csv", index=False)
+# Add information lines
+info_lines = [
+    "# File last updated on: {}".format(datetime.today().strftime('%d %B %Y')),														
+    "# File prepared by: Louise Delaigue (Royal Netherlands Institute for Sea Research)", 														
+    "# For questions please send a message to:  louise.delaigue@nioz.nl or matthew.humphreys@nioz.nl",														
+    "# EXPOCODE: 06S220220218",														
+    "# Chief Scientist: Dr. Eric P. Achterberg (GEOMAR)",														
+    "# Region: South Pacific Ocean (GEOTRACES GP21)",													
+    "# SHIP: R/V Sonne",														
+    "# Cruise:  SO289",														
+    "# Shipboard contact: sonne@sonne.briese-research.de",														
+    "# Notes: code for processing SO289 data can be found at doi",																											
+	"# DIC: Who - L. Delaigue; Status -  Final",																												
+    "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batches #189 #195 #198)",																												
+    "# TA: Who - L. Delaigue; Status -  Final	",																											
+    "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batch #189 #195 #198)",						
+    "#  "
+]
+
+filename = "data/_results/SO289_UWS_discrete_samples_V1.csv"
+
+# Write the info lines
+with open(filename, 'w') as f:
+    for line in info_lines:
+        f.write(line + '\n')
+
+# Append the dataframe
+df.to_csv(filename, mode='a', index=False)
+
