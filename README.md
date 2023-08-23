@@ -11,7 +11,6 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 - [Data Overview](#data-overview)
 - [Processing Steps](#processing-steps)
 - [Results Files](#results-files)
-- [Output and Visualization](#output-and-visualization)
 - [Usage](#usage)
 - [Contributions and Feedback](#contributions-and-feedback)
 - [Credits](#credits)
@@ -71,8 +70,6 @@ Results files can be found in ```data/_results/```.
  ```SO289_UWS_discrete_samples_V1.csv```: Underway discrete measurements for TA/DIC.
  
  ```SO289_UWS_time_series_V1.csv```: Underway high-resolution pH time series.
-
-## Output and Visualization
 
 ## Usage
 If you utilize data from this repository, it's imperative that you properly cite it according to the guidelines provided by the NIOZ Data Archive System (DAS). Within the NIOZ DAS, you will find the corresponding citation format and DOIs for the dataset. Ensuring correct attribution helps support the researchers and institutions that contribute to open data initiatives.
