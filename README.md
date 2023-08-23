@@ -77,9 +77,9 @@ If you utilize data from this repository, it's imperative that you properly cite
 ## Visualisation
 The processing of VINDTA data uses package Calkulate (Humphreys and Matthews, 2023). After running calkulate() (or calibrate() and solve()) on the data, Calkulate contains some plotting functions to help visualise the analysis. These can be founds in ```/figs/vindta``` and ```/figs/vindta_TA_only```. DIC drift corrections are also available in ```/figs/vindta/drift_correction```.
 
-<img src=figs/A08_remove_bad_pH.png width="450" height="300"/>
+<img src=figs/A08_remove_bad_pH.png width="600" height="450"/>
 
-<img src=figs/A10_uws_correct_pH.png width="450" height="300"/>
+<img src=figs/A10_uws_correct_pH.png width="600" height="450"/>
 
 ## Contributions and Feedback
 We highly value the community's insights and feedback on this processing repository. If you have remarks or suggestions, please directly address them to Louise Delaigue at ```louise.delaigue@nioz.nl```. Alternatively, you're encouraged to raise an issue on GitHub to facilitate discussion and potential improvements.
