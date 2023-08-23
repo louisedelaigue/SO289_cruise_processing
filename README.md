@@ -64,6 +64,7 @@ Remaing scripts ```A12``` to ```A14``` format the data into a user-friendly .csv
 Results files can be found in ```data/_results/```.
 
 - **Detailed results files**
+
  ```SO289_CTD_discrete_samples_V1.csv```: CTD discrete measurements for TA/DIC.
  ```SO289_UWS_discrete_samples_V1.csv```: Underway discrete measurements for TA/DIC.
  ```SO289_UWS_time_series_V1.csv```: Underway high-resolution pH time series.
