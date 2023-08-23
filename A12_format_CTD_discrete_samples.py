@@ -149,7 +149,7 @@ info_lines = [
     "# SHIP: R/V Sonne",														
     "# Cruise:  SO289",														
     "# Shipboard contact: sonne@sonne.briese-research.de",														
-    "# Notes: code for processing SO289 data can be found at doi",																											
+    "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",																											
 	"# DIC: Who - L. Delaigue; Status -  Final",																												
     "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batches #189 #195 #198)",																												
     "# TA: Who - L. Delaigue; Status -  Final	",																											

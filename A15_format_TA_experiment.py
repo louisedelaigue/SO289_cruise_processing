@@ -161,7 +161,7 @@ info_lines = [
     "# SHIP: R/V Sonne",														
     "# Cruise:  SO289",														
     "# Shipboard contact: sonne@sonne.briese-research.de",														
-    "# Notes: code for processing SO289 data can be found at doi",																											
+    "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",																											
 	"# DIC: Who - K. Bakker; Status -  Final",																												
     "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a Seal QuAAtro gas-segmented continuous flow analyser and Dickson's CRMs (batch #195)",																												
     "# TA: Who - L. Delaigue; Status -  Final	",																											

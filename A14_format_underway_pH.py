@@ -107,7 +107,7 @@ info_lines = [
     "# SHIP: R/V Sonne",														
     "# Cruise:  SO289",														
     "# Shipboard contact: sonne@sonne.briese-research.de",														
-    "# Notes: code for processing SO289 data can be found at doi",																											
+    "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",																											
     "# pH: Who - L.Delaigue; Status - Final",														
     "# Notes: measured using a PyroScience fiber-based pH sensor (PHROBSC-PK8T for pH range 7.0 to 9.0 on total scale) recalculated at in-situ temperature and pressure and corrected using TA/DIC from underway discrete samples",																									
     "#  "
