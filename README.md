@@ -30,7 +30,9 @@ The cruise report can be found in the ```cruise_report``` folder of this repo in
 
 ## Processing Steps
 
-All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. Below is a summary of each processing script.
+All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. An ```environment.yml``` file can be found in the repo.
+
+Below is a summary of each processing script.
 
 
 - **Detailed processing scripts**
