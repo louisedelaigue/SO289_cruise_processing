@@ -36,10 +36,14 @@ All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. B
 
  ```A01_combine_GEOMAR_CTD_data_and_nuts.py```: Combines data received by GEOMAR - CTD and nutrients - analyzed on board.
  
- ```A02_process_VINDTA_TA_DIC.py```: Processes bottle TA/DIC (250 mL) analyzed on the VINDTA 3C at NIOZ.
+ ```A02_process_VINDTA_TA_DIC.py```: Processes bottle TA/DIC (250 mL borosilicate glass bottles) analyzed on the VINDTA 3C at NIOZ.
  
  ```A03_correct_VINDTA_DIC_drift.py```: Corrects DIC dift from VINDTA coulometer. Drift correction is applied using a PCHIP through the drift in internal reference seawater samples (NUTS).
- # analysis throughout the day
+
+ ```A04_match_TA_only_samples_with_SMB_sal_temp.py```: Fetches data from the SMB underway thermosalinograph and matches to TA sampled in 150 mL HDPE plastic bottles.
+ 
+ ```A05_process_VINDTA_TA_only.py```: Processes TA only (150 HDPE plastic bottles) results from the VINDTA 3C at NIOZ.
+
  **Normalization/Standardization**: If applicable, detail the process.
  **Feature Extraction**: Discuss any new features or metrics derived from the raw data.
 ... (and so on for other processing steps)
