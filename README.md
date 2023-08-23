@@ -75,7 +75,7 @@ Results files can be found in ```data/_results/```.
 We highly value the community's insights and feedback on this processing repository. If you have remarks or suggestions, please directly address them to Louise Delaigue at ```louise.delaigue@nioz.nl```. Alternatively, you're encouraged to raise an issue on GitHub to facilitate discussion and potential improvements.
 
 ## Credits
-Special acknowledgment goes to Chris Galley and Paul Batterman, who conducted the sampling aboard the FS Sonne. The TA/DIC and TA only analyses were handled by Louise Delaigue, Yasmina Ourradi, and Sharyn Ossebar at the NIOZ Royal Netherlands Institute for Sea Research. The processing code was implemented by Louise Delaigue. Additionally, the entire analysis and processing workflow was under the oversight of Matthew Humphreys.
+Special acknowledgment goes to Chris Galley and Paul Batterman, who conducted the sampling aboard the FS Sonne. The TA/DIC and TA only analyses were handled by Louise Delaigue, Yasmina Ourradi, and Sharyn Ossebar. DIC only samples were handled by Karel Bakker. All lab analysis was conducted at the NIOZ Royal Netherlands Institute for Sea Research. The processing code was implemented by Louise Delaigue. Additionally, the entire analysis and processing workflow was under the oversight of Matthew Humphreys.
 
 ## License
 
