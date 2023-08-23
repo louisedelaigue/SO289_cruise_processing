@@ -34,6 +34,8 @@ All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. A
 
 - **Detailed processing scripts**
 
+:warning: Please note: The SMB data, essential for the complete processing, is too large for GitHub hosting. To run the entire processing workflow, you'll need to request this file separately
+
  ```A01_combine_GEOMAR_CTD_data_and_nuts.py```: Combines data received by GEOMAR - CTD and nutrients - analyzed on board.
  
  ```A02_process_VINDTA_TA_DIC.py```: Processes bottle TA/DIC (250 mL borosilicate glass bottles) analyzed on the VINDTA 3C at NIOZ.
@@ -60,7 +62,6 @@ Remaing scripts ```A12``` to ```A14``` format the data into a user-friendly .csv
 
 
 ## Results Files
-
 Results files can be found in ```data/_results/```.
 
 - **Detailed results files**
@@ -81,6 +82,5 @@ We highly value the community's insights and feedback on this processing reposit
 Special acknowledgment goes to Chris Galley and Paul Batterman, who conducted the sampling aboard the FS Sonne. The TA/DIC and TA only analyses were handled by Louise Delaigue, Yasmina Ourradi, and Sharyn Ossebar. DIC only samples were handled by Karel Bakker. All lab analysis was conducted at the NIOZ Royal Netherlands Institute for Sea Research. The processing code was implemented by Louise Delaigue. Additionally, the entire analysis and processing workflow was under the oversight of Matthew Humphreys.
 
 ## License
-
 This repository is licensed under the GNU General Public License v3.0 (GPL-3.0), ensuring that the software remains free and open, with the source code available for transparency and modification.
 
