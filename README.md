@@ -12,6 +12,7 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 - [Processing Steps](#processing-steps)
 - [Results Files](#results-files)
 - [Usage](#usage)
+- [Visualization](#Visualization)
 - [Contributions and Feedback](#contributions-and-feedback)
 - [Credits](#credits)
 - [License](#license)
@@ -70,11 +71,18 @@ Results files can be found in ```data/_results/```.
 ## Usage
 If you utilize data from this repository, it's imperative that you properly cite it according to the guidelines provided by the NIOZ Data Archive System (DAS). Within the NIOZ DAS, you will find the corresponding citation format and DOIs for the dataset. Ensuring correct attribution helps support the researchers and institutions that contribute to open data initiatives.
 
+## Visualization
+The processing of VINDTA data uses package Calkulate (Humphreys and Matthews, 2023). After running calkulate() (or calibrate() and solve()) on the data, Calkulate contains some plotting functions to help visualise the analysis. These can be founds in ```/figs/vindta``` and ```/figs/vindta_TA_only```. DIC drift corrections are also available in ```/figs/vindta/drift_correction```.
+
 ## Contributions and Feedback
 We highly value the community's insights and feedback on this processing repository. If you have remarks or suggestions, please directly address them to Louise Delaigue at ```louise.delaigue@nioz.nl```. Alternatively, you're encouraged to raise an issue on GitHub to facilitate discussion and potential improvements.
 
 ## Credits
 Special acknowledgment goes to Chris Galley and Paul Batterman, who conducted the sampling aboard the FS Sonne. The TA/DIC and TA only analyses were handled by Louise Delaigue, Yasmina Ourradi, and Sharyn Ossebar. DIC only samples were handled by Karel Bakker. All lab analysis was conducted at the NIOZ Royal Netherlands Institute for Sea Research. The processing code was implemented by Louise Delaigue. Additionally, the entire analysis and processing workflow was under the oversight of Matthew Humphreys.
+
+## References
+- **Humphreys, M. P. and Matthews, R. S. (2023). Calkulate: total alkalinity from titration data in Python. Zenodo. doi:10.5281/zenodo.2634304.**
+- **Lee, K., Tong, L. T., Millero, F. J., Sabine, C. L., Dickson, A. G., Goyet, C., Park, G.-H., Wanninkhof, R., Feely, R. A., and Key, R. M. (2006), Global relationships of total alkalinity with salinity and temperature in surface waters of the world's oceans, Geophys. Res. Lett., 33, L19605, doi:10.1029/2006GL027207.**
 
 ## License
 This repository is licensed under the GNU General Public License v3.0 (GPL-3.0), ensuring that the software remains free and open, with the source code available for transparency and modification.
