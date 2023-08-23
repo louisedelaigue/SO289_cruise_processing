@@ -11,7 +11,6 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 - [Data Overview](#data-overview)
 - [Processing Steps](#processing-steps)
 - [Results Files](#results-files)
-- [Scripts and Notebooks](#scripts-and-notebooks)
 - [Output and Visualization](#output-and-visualization)
 - [Contributions and Feedback](#contributions-and-feedback)
 - [Credits](#credits)
@@ -72,11 +71,19 @@ Results files can be found in ```data/_results/```.
  ```SO289_UWS_discrete_samples_V1.csv```: Underway discrete measurements for TA/DIC.
  ```SO289_UWS_time_series_V1.csv```: Underway high-resolution pH time series.
 
+### Output and Visualization
+
+---
+
 ### Contributions and Feedback
 We highly value the community's insights and feedback on this processing repository. If you have remarks or suggestions, please directly address them to Louise Delaigue at ```louise.delaigue@nioz.nl```. Alternatively, you're encouraged to raise an issue on GitHub to facilitate discussion and potential improvements.
 
+---
+
 ### Credits
 Special acknowledgment goes to Chris Galley and Paul Batterman, who conducted the sampling aboard the FS Sonne. The TA/DIC and TA only analyses were handled by Louise Delaigue, Yasmina Ourradi, and Sharyn Ossebar at the NIOZ Royal Netherlands Institute for Sea Research. The processing code was implemented by Louise Delaigue. Additionally, the entire analysis and processing workflow was under the oversight of Matthew Humphreys.
+
+---
 
 ### License
 
