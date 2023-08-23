@@ -24,7 +24,7 @@ The cruise report can be found in the ```cruise_report``` folder of this repo in
 ## Data Overview
 
 - **Source**: South Pacific GEOTRACES Cruise No. SO289, Valparaiso (Chile) – Noumea (New Caledonia), GEOTRACES GP21
-- **Contents**: Discrete samples were taken from the CTD (395 measurements) and the underway water system (32 measurements). A high-resolution (1 measurement every 30 seconds; 78034 measurements) time series of surface ocean pH cross-calibrated using UWS discrete samples is also available.
+- **Contents**: Discrete samples were taken from the CTD (395 measurements) and the underway water system (32 measurements). A high-resolution (1 measurement every 30 seconds; 78034 measurements) time series of surface ocean pH cross-calibrated using UWS discrete samples is also available. Please be aware that high-resolution data is available only during favorable weather conditions.
 - **Time Period**:  18 February 2022 – 08 April 2022
 
 
