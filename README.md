@@ -9,7 +9,7 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 ## Table of Contents
 - [Cruise Report](#data-overview)
 - [Data Overview](#data-overview)
-- [Preprocessing Steps](#preprocessing-steps)
+- [Processing Steps](#processing-steps)
 - [Usage](#usage)
 - [Scripts and Notebooks](#scripts-and-notebooks)
 - [Output and Visualization](#output-and-visualization)
@@ -20,7 +20,7 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 ---
 ## Cruise Report
 
-The cruise report can be found in the ```cruise_report``` of this repo in pdf format.
+The cruise report can be found in the ```cruise_report``` folder of this repo in pdf format.
 
 ## Data Overview
 
@@ -30,9 +30,11 @@ The cruise report can be found in the ```cruise_report``` of this repo in pdf fo
 
 ---
 
-## Preprocessing Steps
+## Processing Steps
 
-1. **Data Cleaning**: Describe steps or methods used to clean the data, such as handling missing values.
+All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. Below is a summary of each processing script.
+
+1. ```A01_combine_GEOMAR_CTD_data_and_nuts.py```: Combines data received by GEOMAR - CTD and nutrients - analyzed on board.
 2. **Normalization/Standardization**: If applicable, detail the process.
 3. **Feature Extraction**: Discuss any new features or metrics derived from the raw data.
 ... (and so on for other processing steps)
