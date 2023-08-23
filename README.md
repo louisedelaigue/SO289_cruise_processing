@@ -25,10 +25,8 @@ The cruise report can be found in the ```cruise_report``` folder of this repo in
 - **Contents**: Discrete samples were taken from the CTD (395 measurements) and the underway water system (32 measurements). A high-resolution (1 measurement every 30 seconds; 78034 measurements) time series of surface ocean pH cross-calibrated using UWS discrete samples is also available. Please be aware that high-resolution data is available only during favorable weather conditions.
 - **Time Period**:  18 February 2022 – 08 April 2022
 
-
 ## Processing Steps
 All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. An ```environment.yml``` file can be found in the repo. Below is a summary of each processing script.
-
 
 - **Detailed processing scripts**
 
@@ -58,7 +56,6 @@ All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. A
   
 Remaing scripts ```A12``` to ```A14``` format the data into a user-friendly .csv file.
 
-
 ## Results Files
 Results files can be found in ```data/_results/```.
 
@@ -81,4 +78,3 @@ Special acknowledgment goes to Chris Galley and Paul Batterman, who conducted th
 
 ## License
 This repository is licensed under the GNU General Public License v3.0 (GPL-3.0), ensuring that the software remains free and open, with the source code available for transparency and modification.
-
