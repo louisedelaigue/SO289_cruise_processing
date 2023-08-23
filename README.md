@@ -12,7 +12,7 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 - [Processing Steps](#processing-steps)
 - [Results Files](#results-files)
 - [Usage](#usage)
-- [Visualisation](#Visualisation)
+- [Visualisation](#visualisation)
 - [Contributions and Feedback](#contributions-and-feedback)
 - [Credits](#credits)
 - [References](#references)
