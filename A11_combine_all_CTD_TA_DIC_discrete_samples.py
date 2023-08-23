@@ -3,7 +3,7 @@
 import pandas as pd
 
 # Load results from lab analysis for TA and DIC
-ta_dic = pd.read_csv("data/_results/SO289_CTD_TA_DIC_results.csv")
+ta_dic = pd.read_csv("data/processing/vindta/SO289_CTD_TA_DIC_results.csv")
 
 # Load CTD data
 ctd = pd.read_csv("data/processing/A01_combine_GEOMAR_CTD_data_and_nuts.csv")
@@ -32,7 +32,7 @@ ta_dic = ta_dic[[
 ctd = ctd.merge(ta_dic, on="bottle", how="outer")
 
 # === TA ONLY - Load results from lab analysis for TA only
-ta = pd.read_csv("data/_results/SO289_CTD_TA_only_results.csv")
+ta = pd.read_csv("data/processing/vindta/SO289_CTD_TA_only_results.csv")
 
 # Only keep SO289 samples
 L = ta.bottle.str.startswith("SO289")
@@ -82,4 +82,4 @@ dic = dic.rename(columns={"DIC":"DIC_only"})
 ctd = ctd.merge(dic, on="bottle", how="outer")
 
 # Save as .csv
-ctd.to_csv("data/processing/SO289_CTD_data_TA_DIC_combined.csv", index=False)
+ctd.to_csv("data/processing/vindta/SO289_CTD_data_TA_DIC_combined.csv", index=False)

@@ -87,4 +87,4 @@ df["pH_total_est_TA_DIC"] = pyco2.sys(
     )["pH_total"]
 
 # Save to .csv
-df.to_csv("data/_results/SO289_underway_TA_DIC_only_results.csv", index=False)
+df.to_csv("data/processing/vindta/SO289_underway_TA_DIC_only_results.csv", index=False)

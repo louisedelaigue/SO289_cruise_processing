@@ -171,18 +171,18 @@ dbs["file_path"] = "data/vindta/TA_ONLY/SO289_TA_only/"
 
 # Assign TA acid batches
 dbs["analysis_batch"] = 0
+
+# Handling November
 dbs.loc[
     (dbs["analysis_datetime"].dt.day >= 24) & (dbs["analysis_datetime"].dt.month == 11),
-    "analysis_batch",
+    "analysis_batch"
 ] = 1
+
+# Handling December - same batch as above but not handled well with datetime command
 dbs.loc[
     (dbs["analysis_datetime"].dt.day >= 1) & (dbs["analysis_datetime"].dt.month == 12),
-    "analysis_batch",
+    "analysis_batch"
 ] = 1
-dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 3) & (dbs["analysis_datetime"].dt.month == 12),
-    "analysis_batch",
-] = 2
 
 # Select which TA CRMs to use/avoid for calibration
 dbs["reference_good"] = ~np.isnan(dbs.alkalinity_certified)
@@ -243,8 +243,8 @@ TA_exp = TA_exp[
 ]
 
 # Save to .csv
-SO289.to_csv("data/_results/SO289_CTD_TA_only_results.csv", index=False)
+SO289.to_csv("data/processing/vindta/SO289_CTD_TA_only_results.csv", index=False)
 SO289_UWS.to_csv(
     "data/processing/vindta/A05_SO289_UWS_TA_only_results.csv", index=False
 )
-TA_exp.to_csv("data/_results/SO289_TA_exp_TA_only_results.csv", index=False)
+TA_exp.to_csv("data/processing/vindta/SO289_TA_exp_TA_only_results.csv", index=False)

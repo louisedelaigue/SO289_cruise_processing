@@ -81,7 +81,7 @@ SO289 = df[
 ]
 
 # Save to .csv
-SO289.to_csv("data/_results/SO289_CTD_TA_DIC_results.csv", index=False)
+SO289.to_csv("data/processing/vindta/SO289_CTD_TA_DIC_results.csv", index=False)
 
 # === PLOT
 # Create a column with hours and minutes
