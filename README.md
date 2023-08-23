@@ -17,7 +17,6 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 - [License](#license)
 
 ## Cruise Report
-
 The cruise report can be found in the ```cruise_report``` folder of this repo in pdf format.
 
 ## Data Overview
@@ -28,13 +27,12 @@ The cruise report can be found in the ```cruise_report``` folder of this repo in
 
 
 ## Processing Steps
-
 All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. An ```environment.yml``` file can be found in the repo. Below is a summary of each processing script.
 
 
 - **Detailed processing scripts**
 
-:warning: Please note: The SMB data, essential for the complete processing, is too large for GitHub hosting. To run the entire processing workflow, you'll need to request this file separately
+:warning: Please note: The SMB data, essential for the complete processing, is too large for GitHub hosting. To run the entire processing workflow, you'll need to request this file separately.
 
  ```A01_combine_GEOMAR_CTD_data_and_nuts.py```: Combines data received by GEOMAR - CTD and nutrients - analyzed on board.
  
