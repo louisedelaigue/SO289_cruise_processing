@@ -53,12 +53,14 @@ ax.scatter(
 )
 
 # Improve figure
-ax.set_title("Removal of unrealistic pH data points due to optode stabilization", fontsize=10)
+ax.set_title(
+    "Removal of unrealistic pH data points due to optode stabilization", fontsize=10
+)
 ax.set_ylabel("$pH_{total}$")
 ax.set_xlabel("Date")
 ax.xaxis.set_major_locator(mdates.AutoDateLocator())
 ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
-ax.tick_params(axis='both', which='major')
+ax.tick_params(axis="both", which="major")
 fig.autofmt_xdate()
 ax.grid(alpha=0.3)
 
@@ -69,9 +71,8 @@ end_date = mdates.date2num(datetime.datetime.strptime("2022-04-06", "%Y-%m-%d"))
 ax.set_xlim(start_date, end_date)
 
 # Add legend
-ax.legend(loc='lower right', fontsize=10, markerscale=5)
+ax.legend(loc="lower right", fontsize=10, markerscale=5)
 
 # Save plot
 plt.tight_layout()
 plt.savefig("./figs/A08_remove_bad_pH.png", dpi=300)
-

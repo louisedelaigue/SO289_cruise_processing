@@ -251,58 +251,68 @@ dbs["analysis_batch"] = 0
 # Anything before 17/10 - we don't care about these as they were JUNKS to test the system
 dbs.loc[
     (dbs["analysis_datetime"].dt.day < 17) & (dbs["analysis_datetime"].dt.month == 10),
-    "analysis_batch"
+    "analysis_batch",
 ] = 0
 
 # Batch 1: 17/10 to 19/10
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 17) & (dbs["analysis_datetime"].dt.day <= 19) & (dbs["analysis_datetime"].dt.month == 10),
-    "analysis_batch"
+    (dbs["analysis_datetime"].dt.day >= 17)
+    & (dbs["analysis_datetime"].dt.day <= 19)
+    & (dbs["analysis_datetime"].dt.month == 10),
+    "analysis_batch",
 ] = 1
 
 # Batch 2: 20/10 to 27/10
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 20) & (dbs["analysis_datetime"].dt.day <= 27) & (dbs["analysis_datetime"].dt.month == 10),
-    "analysis_batch"
+    (dbs["analysis_datetime"].dt.day >= 20)
+    & (dbs["analysis_datetime"].dt.day <= 27)
+    & (dbs["analysis_datetime"].dt.month == 10),
+    "analysis_batch",
 ] = 2
 
 # Batch 3: 28/10 to 03/11
 # This batch spans across two months. We'll handle October part here and November part below.
 dbs.loc[
     (dbs["analysis_datetime"].dt.day >= 28) & (dbs["analysis_datetime"].dt.month == 10),
-    "analysis_batch"
+    "analysis_batch",
 ] = 3
 
 # For November month
 # Batch 3: 28/10 to 03/11 (Continued from October)
 dbs.loc[
     (dbs["analysis_datetime"].dt.day <= 3) & (dbs["analysis_datetime"].dt.month == 11),
-    "analysis_batch"
+    "analysis_batch",
 ] = 3
 
 # Batch 4: 04/11 to 11/11
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 4) & (dbs["analysis_datetime"].dt.day <= 11) & (dbs["analysis_datetime"].dt.month == 11),
-    "analysis_batch"
+    (dbs["analysis_datetime"].dt.day >= 4)
+    & (dbs["analysis_datetime"].dt.day <= 11)
+    & (dbs["analysis_datetime"].dt.month == 11),
+    "analysis_batch",
 ] = 4
 
 # Batch 5: 12/11 to 19/11
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 12) & (dbs["analysis_datetime"].dt.day <= 19) & (dbs["analysis_datetime"].dt.month == 11),
-    "analysis_batch"
+    (dbs["analysis_datetime"].dt.day >= 12)
+    & (dbs["analysis_datetime"].dt.day <= 19)
+    & (dbs["analysis_datetime"].dt.month == 11),
+    "analysis_batch",
 ] = 5
 
 # Batch 6: 20/11 to 23/11
 dbs.loc[
-    (dbs["analysis_datetime"].dt.day >= 20) & (dbs["analysis_datetime"].dt.day <= 23) & (dbs["analysis_datetime"].dt.month == 11),
-    "analysis_batch"
+    (dbs["analysis_datetime"].dt.day >= 20)
+    & (dbs["analysis_datetime"].dt.day <= 23)
+    & (dbs["analysis_datetime"].dt.month == 11),
+    "analysis_batch",
 ] = 6
 
 # Batch 7: 24/11 to 02/12
 # Here, we'll handle only November's part. December will be handled in the next segment if needed.
 dbs.loc[
     (dbs["analysis_datetime"].dt.day >= 24) & (dbs["analysis_datetime"].dt.month == 11),
-    "analysis_batch"
+    "analysis_batch",
 ] = 7
 
 # Select which TA CRMs to use/avoid for calibration

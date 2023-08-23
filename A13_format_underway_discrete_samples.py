@@ -78,7 +78,7 @@ df = df[
         "TA",
         "TA_flag",
         "DIC",
-        "DIC_flag"
+        "DIC_flag",
     ]
 ]
 
@@ -87,25 +87,25 @@ df = df.fillna(-999)
 
 # Add row for units
 units = {
-    "EXPOCODE":"n.a.",
-    "Cruise_ID":"n.a",
-    "Year_UTC":"n.a.",
-    "Month_UTC":"n.a.",
-    "Day_UTC":"n.a.",
-    "Time_UTC":"n.a.",
-    "Latitude":"decimal_deg",
-    "Longitude":"decimal_deg",
-    "Depth":"[m]",
-    "Temperature":"[deg_C]",
-    "Salinity":"n.a.",
-    "TA":"[umol/kg]",
-    "TA_flag":"n.a.",
-    "TA_ONLY":"[umol/kg]",
-    "TA_ONLY_flag":"n.a.",
-    "DIC":"[umol/kg]",
-    "DIC_flag":"n.a.",
-    "DIC_ONLY":"[umol/kg]",
-    "DIC_ONLY_flag":"n.a."
+    "EXPOCODE": "n.a.",
+    "Cruise_ID": "n.a",
+    "Year_UTC": "n.a.",
+    "Month_UTC": "n.a.",
+    "Day_UTC": "n.a.",
+    "Time_UTC": "n.a.",
+    "Latitude": "decimal_deg",
+    "Longitude": "decimal_deg",
+    "Depth": "[m]",
+    "Temperature": "[deg_C]",
+    "Salinity": "n.a.",
+    "TA": "[umol/kg]",
+    "TA_flag": "n.a.",
+    "TA_ONLY": "[umol/kg]",
+    "TA_ONLY_flag": "n.a.",
+    "DIC": "[umol/kg]",
+    "DIC_flag": "n.a.",
+    "DIC_ONLY": "[umol/kg]",
+    "DIC_ONLY_flag": "n.a.",
 }
 
 # Store the current column names
@@ -113,7 +113,7 @@ units = {
 current_columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
 
 # Add units as a new row at the top
-df.loc[-1] = [units.get(col, 'n.a.') for col in current_columns]
+df.loc[-1] = [units.get(col, "n.a.") for col in current_columns]
 df.index = df.index + 1  # Shift index
 df = df.sort_index()  # Sort by index to get the new row on top
 
@@ -122,30 +122,29 @@ df.columns = current_columns
 
 # Add information lines
 info_lines = [
-    "# File last updated on: {}".format(datetime.today().strftime('%d %B %Y')),														
-    "# File prepared by: Louise Delaigue (Royal Netherlands Institute for Sea Research)", 														
-    "# For questions please send a message to:  louise.delaigue@nioz.nl or matthew.humphreys@nioz.nl",														
-    "# EXPOCODE: 06S220220218",														
-    "# Chief Scientist: Prof. Dr. Eric P. Achterberg (GEOMAR)",														
-    "# Region: South Pacific Ocean (GEOTRACES GP21)",													
-    "# SHIP: R/V Sonne",														
-    "# Cruise:  SO289",														
-    "# Shipboard contact: sonne@sonne.briese-research.de",														
-    "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",																											
-	"# DIC: Who - L. Delaigue; Status -  Final",																												
-    "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batches #189 #195 #198)",																												
-    "# TA: Who - L. Delaigue; Status -  Final	",																											
-    "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batch #189 #195 #198)",						
-    "#  "
+    "# File last updated on: {}".format(datetime.today().strftime("%d %B %Y")),
+    "# File prepared by: Louise Delaigue (Royal Netherlands Institute for Sea Research)",
+    "# For questions please send a message to:  louise.delaigue@nioz.nl or matthew.humphreys@nioz.nl",
+    "# EXPOCODE: 06S220220218",
+    "# Chief Scientist: Prof. Dr. Eric P. Achterberg (GEOMAR)",
+    "# Region: South Pacific Ocean (GEOTRACES GP21)",
+    "# SHIP: R/V Sonne",
+    "# Cruise:  SO289",
+    "# Shipboard contact: sonne@sonne.briese-research.de",
+    "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",
+    "# DIC: Who - L. Delaigue; Status -  Final",
+    "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batches #189 #195 #198)",
+    "# TA: Who - L. Delaigue; Status -  Final	",
+    "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batch #189 #195 #198)",
+    "#  ",
 ]
 
 filename = "data/_results/SO289_UWS_discrete_samples_V1.csv"
 
 # Write the info lines
-with open(filename, 'w') as f:
+with open(filename, "w") as f:
     for line in info_lines:
-        f.write(line + '\n')
+        f.write(line + "\n")
 
 # Append the dataframe
-df.to_csv(filename, mode='a', index=False)
-
+df.to_csv(filename, mode="a", index=False)

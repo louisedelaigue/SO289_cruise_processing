@@ -1,4 +1,4 @@
-# This script uses subscripts to open and combine Pyroscience files 
+# This script uses subscripts to open and combine Pyroscience files
 # from the optode plugged into the underway, then matches the optode pH
 # to the SMB salinograph data using datetime
 

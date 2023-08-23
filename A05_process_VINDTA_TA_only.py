@@ -116,17 +116,17 @@ ae_samples = list(dbs[L].bottle.unique())
 # Assign experiment number based on sample name
 for s in ae_samples:
     split_s = s.split("-")
-    
+
     if len(split_s) == 3:
         experiment = split_s[1]
         # Extract all digits from the experiment substring
-        exp_num = ''.join(filter(str.isdigit, experiment))
+        exp_num = "".join(filter(str.isdigit, experiment))
         dbs.loc[dbs["bottle"] == s, "exp_number"] = int(exp_num)
 
     elif len(split_s) == 4:
         experiment = split_s[2]
         # Extract all digits from the experiment substring
-        exp_num = ''.join(filter(str.isdigit, experiment))
+        exp_num = "".join(filter(str.isdigit, experiment))
         dbs.loc[dbs["bottle"] == s, "exp_number"] = int(exp_num)
 
 # Drop experiment 8 because of contamination
@@ -181,13 +181,13 @@ dbs["analysis_batch"] = 0
 # Handling November
 dbs.loc[
     (dbs["analysis_datetime"].dt.day >= 24) & (dbs["analysis_datetime"].dt.month == 11),
-    "analysis_batch"
+    "analysis_batch",
 ] = 1
 
 # Handling December - same batch as above but not handled well with datetime command
 dbs.loc[
     (dbs["analysis_datetime"].dt.day >= 1) & (dbs["analysis_datetime"].dt.month == 12),
-    "analysis_batch"
+    "analysis_batch",
 ] = 1
 
 # Select which TA CRMs to use/avoid for calibration

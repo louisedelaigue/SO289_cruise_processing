@@ -1,7 +1,7 @@
 # This script corrects continuous underway pH using an approach similar to
 # the DIC drift correction, with a PCHIP through all pH difference
 # in between pH(optode) and pH(subsamples), the latter calculated from
-# TA/DIC 
+# TA/DIC
 
 
 import pandas as pd, numpy as np
@@ -14,7 +14,9 @@ import datetime
 df = pd.read_csv("./data/processing/optode/A09_estimate_alkalinity.csv")
 
 # Import subsamples
-subsamples = pd.read_csv("data/processing/vindta/SO289_underway_TA_DIC_only_results.csv")
+subsamples = pd.read_csv(
+    "data/processing/vindta/SO289_underway_TA_DIC_only_results.csv"
+)
 
 # Flag unrealistic subsamples for now
 subsamples["flag"] = 2
@@ -99,9 +101,9 @@ ax.scatter(
     df["date_time"],
     df["pH_insitu_ta_est"],
     label="Raw pH",
-    color='blue',
+    color="blue",
     s=1,
-    alpha=0.6
+    alpha=0.6,
 )
 
 # Plot corrected pH data
@@ -109,9 +111,9 @@ ax.scatter(
     df["date_time"],
     df["pH_optode_corrected"],
     label="Corrected pH",
-    color='black',
+    color="black",
     s=1,
-    alpha=0.4
+    alpha=0.4,
 )
 
 # Scatter the subsamples for corrected pH
@@ -119,18 +121,20 @@ ax.scatter(
     subsamples["date_time"],
     subsamples["pH_total_est_TA_DIC"],
     label="Subsample $pH_{TA/DIC}$",
-    color='red',
+    color="red",
     s=3,
     marker="x",  # use different marker for clarity
-    zorder=5  # to ensure it's on top
+    zorder=5,  # to ensure it's on top
 )
 
-ax.set_title("Correction of pH time series based on recalculated pH from TA and DIC", fontsize=10)
+ax.set_title(
+    "Correction of pH time series based on recalculated pH from TA and DIC", fontsize=10
+)
 ax.set_ylabel("$pH_{total}$")
 ax.set_xlabel("Date")
 ax.xaxis.set_major_locator(mdates.AutoDateLocator())
 ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
-ax.tick_params(axis='both', which='major')
+ax.tick_params(axis="both", which="major")
 fig.autofmt_xdate()
 ax.grid(alpha=0.3)
 
@@ -141,7 +145,7 @@ end_date = mdates.date2num(datetime.datetime.strptime("2022-04-06", "%Y-%m-%d"))
 ax.set_xlim(start_date, end_date)
 
 # Add legend
-ax.legend(loc='best', fontsize=10, markerscale=5)
+ax.legend(loc="best", fontsize=10, markerscale=5)
 
 # Save plot
 plt.tight_layout()

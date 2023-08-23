@@ -30,29 +30,31 @@ df["pH_flag"] = 2
 rn = {
     "lat": "Latitude",
     "lon": "Longitude",
-    "SBE38_water_temp":"Temperature",
-    "SBE45_sal":"Salinity",
-    "pH_optode_corrected":"pH_TS_measured (optode)"
+    "SBE38_water_temp": "Temperature",
+    "SBE45_sal": "Salinity",
+    "pH_optode_corrected": "pH_TS_measured (optode)",
 }
 df = df.rename(columns=rn)
 
 # Reorder columns
-df = df[[
-    "EXPOCODE",
-    "Cruise_ID",
-    "Year_UTC",
-    "Month_UTC",
-    "Day_UTC",
-    "Time_UTC",
-    "Latitude",
-    "Longitude",
-    "Depth",
-    "Temperature",
-    "TEMP_pH",
-    "Salinity",
-    "pH_TS_measured (optode)",
-    "pH_flag"
-    ]]
+df = df[
+    [
+        "EXPOCODE",
+        "Cruise_ID",
+        "Year_UTC",
+        "Month_UTC",
+        "Day_UTC",
+        "Time_UTC",
+        "Latitude",
+        "Longitude",
+        "Depth",
+        "Temperature",
+        "TEMP_pH",
+        "Salinity",
+        "pH_TS_measured (optode)",
+        "pH_flag",
+    ]
+]
 
 # Drop rows with no pH
 df = df.dropna(subset="pH_TS_measured (optode)")
@@ -68,20 +70,20 @@ df = df.drop(columns="index")
 
 # Add row for units
 units = {
-    "EXPOCODE":"n.a.",
-    "Cruise_ID":"n.a",
-    "Year_UTC":"n.a.",
-    "Month_UTC":"n.a.",
-    "Day_UTC":"n.a.",
-    "Time_UTC":"n.a.",
-    "Latitude":"decimal_deg",
-    "Longitude":"decimal_deg",
-    "Depth":"[m]",
-    "Temperature":"[deg_C]",
-    "TEMP_pH":"[deg_C",
-    "Salinity":"n.a.",
-    "pH_TS_measured (optode)":"n.a.",
-    "pH_flag":"n.a."
+    "EXPOCODE": "n.a.",
+    "Cruise_ID": "n.a",
+    "Year_UTC": "n.a.",
+    "Month_UTC": "n.a.",
+    "Day_UTC": "n.a.",
+    "Time_UTC": "n.a.",
+    "Latitude": "decimal_deg",
+    "Longitude": "decimal_deg",
+    "Depth": "[m]",
+    "Temperature": "[deg_C]",
+    "TEMP_pH": "[deg_C",
+    "Salinity": "n.a.",
+    "pH_TS_measured (optode)": "n.a.",
+    "pH_flag": "n.a.",
 }
 
 # Store the current column names
@@ -89,7 +91,7 @@ units = {
 current_columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
 
 # Add units as a new row at the top
-df.loc[-1] = [units.get(col, 'n.a.') for col in current_columns]
+df.loc[-1] = [units.get(col, "n.a.") for col in current_columns]
 df.index = df.index + 1  # Shift index
 df = df.sort_index()  # Sort by index to get the new row on top
 
@@ -98,27 +100,27 @@ df.columns = current_columns
 
 # Add information lines
 info_lines = [
-    "# File last updated on: {}".format(datetime.today().strftime('%d %B %Y')),														
-    "# File prepared by: Louise Delaigue (Royal Netherlands Institute for Sea Research)", 														
-    "# For questions please send a message to:  louise.delaigue@nioz.nl or matthew.humphreys@nioz.nl",														
-    "# EXPOCODE: 06S220220218",														
-    "# Chief Scientist: Prof. Dr. Eric P. Achterberg (GEOMAR)",														
-    "# Region: South Pacific Ocean (GEOTRACES GP21)",													
-    "# SHIP: R/V Sonne",														
-    "# Cruise:  SO289",														
-    "# Shipboard contact: sonne@sonne.briese-research.de",														
-    "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",																											
-    "# pH: Who - L.Delaigue; Status - Final",														
-    "# Notes: measured using a PyroScience fiber-based pH sensor (PHROBSC-PK8T for pH range 7.0 to 9.0 on total scale) recalculated at in-situ temperature and pressure and corrected using TA/DIC from underway discrete samples",																									
-    "#  "
+    "# File last updated on: {}".format(datetime.today().strftime("%d %B %Y")),
+    "# File prepared by: Louise Delaigue (Royal Netherlands Institute for Sea Research)",
+    "# For questions please send a message to:  louise.delaigue@nioz.nl or matthew.humphreys@nioz.nl",
+    "# EXPOCODE: 06S220220218",
+    "# Chief Scientist: Prof. Dr. Eric P. Achterberg (GEOMAR)",
+    "# Region: South Pacific Ocean (GEOTRACES GP21)",
+    "# SHIP: R/V Sonne",
+    "# Cruise:  SO289",
+    "# Shipboard contact: sonne@sonne.briese-research.de",
+    "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",
+    "# pH: Who - L.Delaigue; Status - Final",
+    "# Notes: measured using a PyroScience fiber-based pH sensor (PHROBSC-PK8T for pH range 7.0 to 9.0 on total scale) recalculated at in-situ temperature and pressure and corrected using TA/DIC from underway discrete samples",
+    "#  ",
 ]
 
 filename = "data/_results/SO289_UWS_time_series_V1.csv"
 
 # Write the info lines
-with open(filename, 'w') as f:
+with open(filename, "w") as f:
     for line in info_lines:
-        f.write(line + '\n')
+        f.write(line + "\n")
 
 # Append the dataframe
-df.to_csv(filename, mode='a', index=False)
+df.to_csv(filename, mode="a", index=False)
