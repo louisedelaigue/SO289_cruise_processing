@@ -59,7 +59,7 @@ All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. A
 Remaing scripts ```A12``` to ```A14``` format the data into a user-friendly .csv file.
 
 ## Results Files
-Results files can be found in ```data/_results/```.
+Results files can be found in ```data/_results/```. Files provide the conclusive results for SO289 carbonate chemistry, encompassing TA, DIC, and a high-resolution pH time series.
 
 - **Detailed results files**
 
