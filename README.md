@@ -7,15 +7,16 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 ---
 
 ## Table of Contents
-- [Cruise Report](#data-overview)
-- [Data Overview](#data-overview)
-- [Processing Steps](#processing-steps)
-- [Results Files](#results-files)
-- [Usage](#usage)
-- [Visualization](#Visualization)
-- [Contributions and Feedback](#contributions-and-feedback)
-- [Credits](#credits)
-- [License](#license)
+- [Cruise Report](##data-overview)
+- [Data Overview](##data-overview)
+- [Processing Steps](##processing-steps)
+- [Results Files](##results-files)
+- [Usage](##usage)
+- [Visualisation](##Visualisation)
+- [Contributions and Feedback](##contributions-and-feedback)
+- [Credits](##credits)
+- [References](##references)
+- [License](##license)
 
 ## Cruise Report
 The cruise report can be found in the ```cruise_report``` folder of this repo in pdf format.
@@ -71,7 +72,7 @@ Results files can be found in ```data/_results/```.
 ## Usage
 If you utilize data from this repository, it's imperative that you properly cite it according to the guidelines provided by the NIOZ Data Archive System (DAS). Within the NIOZ DAS, you will find the corresponding citation format and DOIs for the dataset. Ensuring correct attribution helps support the researchers and institutions that contribute to open data initiatives.
 
-## Visualization
+## Visualisation
 The processing of VINDTA data uses package Calkulate (Humphreys and Matthews, 2023). After running calkulate() (or calibrate() and solve()) on the data, Calkulate contains some plotting functions to help visualise the analysis. These can be founds in ```/figs/vindta``` and ```/figs/vindta_TA_only```. DIC drift corrections are also available in ```/figs/vindta/drift_correction```.
 
 ## Contributions and Feedback
