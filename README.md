@@ -77,7 +77,7 @@ The processing of VINDTA data uses package Calkulate (Humphreys and Matthews, 20
 
 <img src=figs/A08_remove_bad_pH.png width="900" height="600"/>
 
-<img src=A10_uws_correct_pH.png width="900" height="600"/>
+<img src=figs/A10_uws_correct_pH.png width="900" height="600"/>
 
 ## Contributions and Feedback
 We highly value the community's insights and feedback on this processing repository. If you have remarks or suggestions, please directly address them to Louise Delaigue at ```louise.delaigue@nioz.nl```. Alternatively, you're encouraged to raise an issue on GitHub to facilitate discussion and potential improvements.
