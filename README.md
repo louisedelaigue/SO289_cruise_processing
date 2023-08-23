@@ -1,5 +1,7 @@
 # Data processing for SO289 cruise
 
+[![DOI](https://zenodo.org/badge/563245618.svg)](https://zenodo.org/badge/latestdoi/563245618)
+
 <img src=cruise_track.PNG width="860.5" height="405"/>
 
 The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, traveling from Valparaiso to Noumea in the South Pacific Ocean. The primary focus was on trace element biogeochemistry and chemical oceanography, also incorporating physical and biological aspects. The mission aimed to extensively analyze the distribution, origins, and depletions of trace elements and their isotopes (TEIs) in a lesser-explored ocean region. This study sought to understand TEI biogeochemical cycles, their link to surface ocean productivity, and their role in carbon and nitrogen cycles, especially considering some TEIs serve as micronutrients. These insights are crucial for grasping the chemical foundation of marine ecosystems.
