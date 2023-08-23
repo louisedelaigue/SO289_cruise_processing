@@ -7,16 +7,16 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 ---
 
 ## Table of Contents
-- [Cruise Report](##data-overview)
-- [Data Overview](##data-overview)
-- [Processing Steps](##processing-steps)
-- [Results Files](##results-files)
-- [Usage](##usage)
-- [Visualisation](##Visualisation)
-- [Contributions and Feedback](##contributions-and-feedback)
-- [Credits](##credits)
-- [References](##references)
-- [License](##license)
+- [Cruise Report](#data-overview)
+- [Data Overview](#data-overview)
+- [Processing Steps](#processing-steps)
+- [Results Files](#results-files)
+- [Usage](#usage)
+- [Visualisation](#Visualisation)
+- [Contributions and Feedback](#contributions-and-feedback)
+- [Credits](#credits)
+- [References](#references)
+- [License](#license)
 
 ## Cruise Report
 The cruise report can be found in the ```cruise_report``` folder of this repo in pdf format.
