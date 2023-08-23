@@ -56,6 +56,9 @@ df = df.dropna(subset="pH_TS_measured (optode)")
 # Fill missing values if any
 df = df.fillna(-999)
 
+# Reset index
+df = df.reset_index()
+
 # Add information lines
 info_lines = [
     "# File last updated on: {}".format(datetime.today().strftime('%d %B %Y')),														

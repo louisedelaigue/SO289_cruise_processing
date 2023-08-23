@@ -42,6 +42,9 @@ df["DIC_flag"] = 2
 df["TA_ONLY_flag"] = 2
 df["DIC_ONLY_flag"] = 2
 
+# Reset index
+df = df.reset_index()
+
 # Rename columns
 rn = {
       "station":"Station_ID",
