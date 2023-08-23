@@ -47,9 +47,19 @@ All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. B
  
  ```A05_process_VINDTA_TA_only.py```: Processes TA only (150 HDPE plastic bottles) results from the VINDTA 3C at NIOZ.
 
- **Normalization/Standardization**: If applicable, detail the process.
- **Feature Extraction**: Discuss any new features or metrics derived from the raw data.
-... (and so on for other processing steps)
+ ```A06_combine_TA_DIC_only_subsamples.py```: Combines TA only (150 HDPE plastic bottles) analysis results from the VINDTA 3C with DIC only results (12 mL exetainers vials) from the Seal QuAAtro gas-segmented continuous flow analyser. Both at NIOZ.
+ 
+ ```A07_uws_match_pyroscience_smb.py```: Opens and combines Pyroscience files from the optode plugged into the underway, then matches the optode pH to the SMB salinograph data using date and time.
+ 
+ ```A08_remove_bad_pH.py```: Looks at massive pH drifts to remove bad pH data.
+ 
+ ```A09_uws_estimate_alkalinity.py```: Estimates alkalinity in the South Pacific Ocean for underway pH data using the Lee et al. (2006) equations.
+ 
+ ```A10_uws_correct_pH.py```: Corrects continuous underway pH using an approach similar to the DIC drift correction, with a PCHIP through all pH difference in between pH(optode) and pH(subsamples), the latter calculated from TA/DIC.
+ 
+ ```A11_combine_all_CTD_TA_DIC_discrete_samples.py```: Combines all discrete samples for TA and DIC.
+ 
+Remaing scripts A12 to A14 format the data into a user-friendly .csv file.
 
 ---
 
