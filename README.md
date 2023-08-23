@@ -72,6 +72,10 @@ Results files can be found in ```data/_results/```.
  ```SO289_UWS_discrete_samples_V1.csv```: Underway discrete measurements for TA/DIC.
  ```SO289_UWS_time_series_V1.csv```: Underway high-resolution pH time series.
 
-```bash
-# If there are commands to run, list them here
-python your_script.py --input data.csv --output processed_data.csv
+### Credits
+Special acknowledgment goes to Chris Galley and Paul Batterman, who conducted the sampling aboard the FS Sonne. The TA/DIC and TA only analyses were handled by Louise Delaigue, Yasmina Ourradi, and Sharyn Ossebar at the NIOZ Royal Netherlands Institute for Sea Research. The processing code was implemented by Louise Delaigue. Additionally, the entire analysis and processing workflow was under the oversight of Matthew Humphreys.
+
+### License
+
+This repository is licensed under the GNU General Public License v3.0 (GPL-3.0), ensuring that the software remains free and open, with the source code available for transparency and modification.
+
