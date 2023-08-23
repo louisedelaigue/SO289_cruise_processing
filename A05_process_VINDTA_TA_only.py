@@ -93,8 +93,8 @@ print("/!\ \n CAREFUL: MISSING METADATA FOR 3 SO289 UWS SAMPLES \n /!\ ")
 # Assign metadata for alkalinity experiment samples
 meta = pd.read_excel("data/vindta/TA_ONLY/SO289_NaOH.xlsx", na_values="<LOD")
 
-# Calculate sample density
-meta["density"] = calk.density.seawater_1atm_MP81(25, meta["Salinity"])
+# Calculate sample density at in-situ temperature given nuts are given for that temperature
+meta["density"] = calk.density.seawater_1atm_MP81(meta["SST"], meta["Salinity"])
 
 # Convert nutrients from nM to umol/kg
 meta["ton"] = (meta["TON (nM)"] * 0.001) / meta[
@@ -115,13 +115,19 @@ ae_samples = list(dbs[L].bottle.unique())
 
 # Assign experiment number based on sample name
 for s in ae_samples:
-    if len(s.split("-")) == 3:
-        experiment = s.split("-")[1]
-        dbs.loc[dbs["bottle"] == s, "exp_number"] = int(experiment[3])
+    split_s = s.split("-")
+    
+    if len(split_s) == 3:
+        experiment = split_s[1]
+        # Extract all digits from the experiment substring
+        exp_num = ''.join(filter(str.isdigit, experiment))
+        dbs.loc[dbs["bottle"] == s, "exp_number"] = int(exp_num)
 
-    if len(s.split("-")) == 4:
-        experiment = s.split("-")[2]
-        dbs.loc[dbs["bottle"] == s, "exp_number"] = int(experiment[1])
+    elif len(split_s) == 4:
+        experiment = split_s[2]
+        # Extract all digits from the experiment substring
+        exp_num = ''.join(filter(str.isdigit, experiment))
+        dbs.loc[dbs["bottle"] == s, "exp_number"] = int(exp_num)
 
 # Drop experiment 8 because of contamination
 L = dbs["exp_number"] == 8

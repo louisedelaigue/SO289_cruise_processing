@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 
 # Load discrete samples data
-df = pd.read_csv("data/_results/SO289_underway_TA_DIC_only_results.csv")
+df = pd.read_csv("data/processing/vindta/SO289_underway_TA_DIC_only_results.csv")
 
 # Convert to datetime object
 df["date_time"] = pd.to_datetime(df["date_time"])
@@ -35,6 +35,18 @@ def dms_to_dd(lat_or_lon):
 df["lat"] = df.lat.apply(dms_to_dd)
 df["lon"] = df.lon.apply(dms_to_dd)
 
+# Add TA flag column
+df["TA_flag"] = 2
+df.loc[df["date_time"] == "2022-03-04 15:35:00", "TA_flag"] = 3
+df.loc[df["date_time"] == "2022-03-29 18:30:00", "TA_flag"] = 3
+df.loc[df["date_time"] == "2022-03-25 05:25:00", "TA_flag"] = 3
+
+# Add DIC flag column
+df["DIC_flag"] = 2
+df.loc[df["date_time"] == "2022-03-04 15:35:00", "DIC_flag"] = 3
+df.loc[df["date_time"] == "2022-03-29 18:30:00", "DIC_flag"] = 3
+df.loc[df["date_time"] == "2022-03-25 05:25:00", "DIC_flag"] = 3
+
 # Rename columns
 rn = {
     "SBE45_sal": "Salinity",
@@ -53,6 +65,7 @@ df["Cruise_ID"] = "SO289"
 df = df[
     [
         "EXPOCODE",
+        "Cruise_ID",
         "Year_UTC",
         "Month_UTC",
         "Day_UTC",
@@ -63,12 +76,49 @@ df = df[
         "Temperature",
         "Salinity",
         "TA",
+        "TA_flag",
         "DIC",
+        "DIC_flag"
     ]
 ]
 
 # Fill missing values
 df = df.fillna(-999)
+
+# Add row for units
+units = {
+    "EXPOCODE":"n.a.",
+    "Cruise_ID":"n.a",
+    "Year_UTC":"n.a.",
+    "Month_UTC":"n.a.",
+    "Day_UTC":"n.a.",
+    "Time_UTC":"n.a.",
+    "Latitude":"decimal_deg",
+    "Longitude":"decimal_deg",
+    "Depth":"[m]",
+    "Temperature":"[deg_C]",
+    "Salinity":"n.a.",
+    "TA":"[umol/kg]",
+    "TA_flag":"n.a.",
+    "TA_ONLY":"[umol/kg]",
+    "TA_ONLY_flag":"n.a.",
+    "DIC":"[umol/kg]",
+    "DIC_flag":"n.a.",
+    "DIC_ONLY":"[umol/kg]",
+    "DIC_ONLY_flag":"n.a."
+}
+
+# Store the current column names
+# If columns are multi-index, get the first level. Otherwise, get the column name.
+current_columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
+
+# Add units as a new row at the top
+df.loc[-1] = [units.get(col, 'n.a.') for col in current_columns]
+df.index = df.index + 1  # Shift index
+df = df.sort_index()  # Sort by index to get the new row on top
+
+# Reset column headers
+df.columns = current_columns
 
 # Add information lines
 info_lines = [
@@ -76,7 +126,7 @@ info_lines = [
     "# File prepared by: Louise Delaigue (Royal Netherlands Institute for Sea Research)", 														
     "# For questions please send a message to:  louise.delaigue@nioz.nl or matthew.humphreys@nioz.nl",														
     "# EXPOCODE: 06S220220218",														
-    "# Chief Scientist: Dr. Eric P. Achterberg (GEOMAR)",														
+    "# Chief Scientist: Prof. Dr. Eric P. Achterberg (GEOMAR)",														
     "# Region: South Pacific Ocean (GEOTRACES GP21)",													
     "# SHIP: R/V Sonne",														
     "# Cruise:  SO289",														

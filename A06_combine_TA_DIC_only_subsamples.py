@@ -66,8 +66,8 @@ df = df[[
     "DIC"
     ]]
 
-# Calculate density of each sample at lab temperature (= 23 deg C) and sample salinity
-df['density'] = calk.density.seawater_1atm_MP81(23, df['SBE45_sal'])
+# Calculate density of each sample at lab temperature (= 20 deg C in raw KB files) and sample salinity
+df['density'] = calk.density.seawater_1atm_MP81(20, df['SBE45_sal'])
 
 # Convert from umol/L to umol/kg for DIC only (K. Bakker lab analysis)
 df['DIC'] = df['DIC'] / df['density']

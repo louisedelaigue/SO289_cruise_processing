@@ -2,7 +2,7 @@
 # File prepared by: Louise Delaigue (Royal Netherlands Institute for Sea Research)
 # For questions please send a message to:  louise.delaigue@nioz.nl or matthew.humphreys@nioz.nl
 # EXPOCODE: 06S220220218
-# Chief Scientist: Dr. Eric P. Achterberg (GEOMAR)
+# Chief Scientist: Prof. Dr. Eric P. Achterberg (GEOMAR)
 # Region: South Pacific Ocean (GEOTRACES GP21)
 # SHIP: R/V Sonne
 # Cruise:  SO289
@@ -16,7 +16,7 @@
 # Notes: TA_ONLY and DIC_ONLY were sampled and measured separatly from 150 mL HDPE plastic bottles on a VINDTA 3C and 12 mL exetainer vials respectively on a Seal QuAAtro gas-segmented continuous flow analyser
 #  
 EXPOCODE,Cruise_ID,Station_ID,Niskin_ID,Year_UTC,Month_UTC,Day_UTC,Time_UTC,Latitude,Longitude,CTDPRES,Depth,CTDTEMP_ITS90,CTDSAL_PSS78,TA,TA_flag,TA_ONLY,TA_ONLY_flag,DIC,DIC_flag,DIC_ONLY,DIC_ONLY_flag
-n.a.,n.a,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.,decimal_deg,decimal_deg,[bars],[m],[deg_C],n.a.,[umol/kg],n.a.,[umol/kg],n.a.,[umol/kg],n.a.,[umol/kg,n.a.
+n.a.,n.a,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.,decimal_deg,decimal_deg,[bars],[m],[deg_C],n.a.,[umol/kg],n.a.,[umol/kg],n.a.,[umol/kg],n.a.,[umol/kg],n.a.
 06S220220218,SO289,01,3.0,2022.0,2.0,23.0,17:18:30,-33.60752,-71.72898,99.8,99.1,11.4842,34.6036,2287.739231464668,2,-999.0,2,2294.4490418150403,2,-999.0,2
 06S220220218,SO289,01,15.0,2022.0,2.0,23.0,17:22:55,-33.60752,-71.729,6.7,6.7,14.2384,34.3438,2282.8239462368665,2,-999.0,2,2147.5353042456363,2,-999.0,2
 06S220220218,SO289,10,3.0,2022.0,2.0,28.0,18:34:02,-32.49818,-81.9992,3994.7,3929.7,1.657,34.7019,2407.933108050082,2,-999.0,2,2310.83989140836,2,-999.0,2
