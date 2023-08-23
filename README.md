@@ -35,7 +35,9 @@ The cruise report can be found in the ```cruise_report``` folder of this repo in
 All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. Below is a summary of each processing script.
 
  ```A01_combine_GEOMAR_CTD_data_and_nuts.py```: Combines data received by GEOMAR - CTD and nutrients - analyzed on board.
+ 
  ```A02_process_VINDTA_TA_DIC.py```: Processes bottle TA/DIC (250 mL) analyzed on the VINDTA 3C at NIOZ.
+ 
  ```A03_correct_VINDTA_DIC_drift.py```: Corrects DIC dift from VINDTA coulometer. Drift correction is applied using a PCHIP through the drift in internal reference seawater samples (NUTS).
  # analysis throughout the day
  **Normalization/Standardization**: If applicable, detail the process.
