@@ -10,7 +10,7 @@ The SO289 research cruise on FS Sonne occurred during the 2022 austral autumn, t
 - [Cruise Report](#data-overview)
 - [Data Overview](#data-overview)
 - [Processing Steps](#processing-steps)
-- [Usage](#usage)
+- [Results Files](#results-files)
 - [Scripts and Notebooks](#scripts-and-notebooks)
 - [Output and Visualization](#output-and-visualization)
 - [Contributing](#contributing)
@@ -58,15 +58,19 @@ All processing can be run at once using the ```A0_RUN_PROCESSING.py``` script. B
  ```A10_uws_correct_pH.py```: Corrects continuous underway pH using an approach similar to the DIC drift correction, with a PCHIP through all pH difference in between pH(optode) and pH(subsamples), the latter calculated from TA/DIC.
  
  ```A11_combine_all_CTD_TA_DIC_discrete_samples.py```: Combines all discrete samples for TA and DIC.
- 
- 
-Remaing scripts A12 to A14 format the data into a user-friendly .csv file.
+  
+Remaing scripts ```A12``` to ```A14``` format the data into a user-friendly .csv file.
 
 ---
 
-## Usage
+## Results Files
 
-Instructions on how to use the scripts or notebooks to process your own cruise data.
+Results files can be found in ```data/_results/```.
+
+- **Detailed results files**
+ ```SO289_CTD_discrete_samples_V1.csv```: CTD discrete measurements for TA/DIC.
+ ```SO289_UWS_discrete_samples_V1.csv```: Underway discrete measurements for TA/DIC.
+ ```SO289_UWS_time_series_V1.csv```: Underway high-resolution pH time series.
 
 ```bash
 # If there are commands to run, list them here
