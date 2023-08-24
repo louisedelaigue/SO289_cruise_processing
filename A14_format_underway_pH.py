@@ -109,15 +109,15 @@ info_lines = [
     "# SHIP: R/V Sonne",
     "# Cruise:  SO289",
     "# Shipboard contact: sonne@sonne.briese-research.de",
-    "# Notes: sampling on board the ship was done by Dr. Christopher Galley and Paul Batterman"
+    "# Notes: sampling on board the ship was done by Dr. Christopher Galley and Paul Batterman",
     "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",
     "# pH: Who - L.Delaigue; Status - Final",
     "# Notes: measured using a PyroScience fiber-based pH sensor (PHROBSC-PK8T for pH range 7.0 to 9.0 on total scale) recalculated at in-situ temperature and pressure and corrected using TA/DIC from underway discrete samples",
-    "# Notes: For data QC, _flag = 2 is acceptable, _flag = 3 is questionable and _flag = 4 is bad"
+    "# Notes: For data QC _flag = 2 is acceptable _flag = 3 is questionable and _flag = 4 is bad",
     "#  ",
 ]
 
-filename = "data/_results/SO289_UWS_time_series_V1.csv"
+filename = "data/_results/SO289_UWS_time_series_V2.csv"
 
 # Write the info lines
 with open(filename, "w") as f:

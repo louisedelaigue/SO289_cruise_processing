@@ -131,17 +131,17 @@ info_lines = [
     "# SHIP: R/V Sonne",
     "# Cruise:  SO289",
     "# Shipboard contact: sonne@sonne.briese-research.de",
-    "# Notes: sampling on board the ship was done by Dr. Christopher Galley and Paul Batterman"
+    "# Notes: sampling on board the ship was done by Dr. Christopher Galley and Paul Batterman",
     "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",
     "# DIC: Who - L. Delaigue; Status -  Final",
     "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batches #189 #195 #198)",
     "# TA: Who - L. Delaigue; Status -  Final	",
     "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batch #189 #195 #198)",
-    "# Notes: For data QC, _flag = 2 is acceptable, _flag = 3 is questionable and _flag = 4 is bad"
+    "# Notes: For data QC _flag = 2 is acceptable _flag = 3 is questionable and _flag = 4 is bad",
     "#  ",
 ]
 
-filename = "data/_results/SO289_UWS_discrete_samples_V1.csv"
+filename = "data/_results/SO289_UWS_discrete_samples_V2.csv"
 
 # Write the info lines
 with open(filename, "w") as f:

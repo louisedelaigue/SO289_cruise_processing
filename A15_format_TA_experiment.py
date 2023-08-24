@@ -167,18 +167,18 @@ info_lines = [
     "# SHIP: R/V Sonne",
     "# Cruise:  SO289",
     "# Shipboard contact: sonne@sonne.briese-research.de",
-    "# Notes: sampling on board the ship was done by Dr. Tom Browning and Haoran Liu"
+    "# Notes: sampling on board the ship was done by Dr. Tom Browning and Haoran Liu",
     "# Notes: code for processing SO289 data can be found at https://zenodo.org/badge/latestdoi/563245618",
     "# DIC: Who - K. Bakker; Status -  Final",
     "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a Seal QuAAtro gas-segmented continuous flow analyser and Dickson's CRMs (batch #195)",
     "# TA: Who - L. Delaigue; Status -  Final	",
     "# Notes:  analysed at the Royal Netherlands Institute for Sea Resarch using a VINDTA 3C (#017 Marianda Germany) and Dickson's CRMs (batch #189 #195 #198)",
     "# Notes: TA and DIC were sampled separatly in 150 mL HDPE plastic bottles and 12 mL exetainer vials respectively",
-    "# Notes: For data QC, _flag = 2 is acceptable, _flag = 3 is questionable and _flag = 4 is bad"
+    "# Notes: For data QC _flag = 2 is acceptable _flag = 3 is questionable and _flag = 4 is bad",
     "#  ",
 ]
 
-filename = "data/_results/SO289_TA_enhancement_experiment_V1.csv"
+filename = "data/_results/SO289_TA_enhancement_experiment_V4.csv"
 
 # Write the info lines
 with open(filename, "w") as f:
