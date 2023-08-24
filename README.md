@@ -76,6 +76,15 @@ Results files can be found in ```data/_results/```. Files provide the conclusive
 ## Usage
 If you utilize data from this repository, it's imperative that you properly cite it according to the guidelines provided by the NIOZ Data Archive System (DAS). Within the NIOZ DAS, you will find the corresponding citation format and DOIs for the dataset. Ensuring correct attribution helps support the researchers and institutions that contribute to open data initiatives.
 
+- **Links to NIOZ DAS results files**
+ ```SO289_CTD_discrete_samples_V6.csv```: https://dataverse.nioz.nl/dataset.xhtml?persistentId=doi:10.25850/nioz/7b.b.tf
+ 
+ ```SO289_UWS_discrete_samples_V2.csv```: https://dataverse.nioz.nl/dataset.xhtml?persistentId=doi:10.25850/nioz/7b.b.vf
+ 
+ ```SO289_UWS_time_series_V2.csv```: https://dataverse.nioz.nl/dataset.xhtml?persistentId=doi:10.25850/nioz/7b.b.uf
+ 
+  ```SO289_TA_enhancement_experiment_V4.csv```: https://dataverse.nioz.nl/dataset.xhtml?persistentId=doi:10.25850/nioz/7b.b.wf
+
 ## Visualisation
 The processing of VINDTA data uses package Calkulate (Humphreys and Matthews, 2023). After running calkulate() (or calibrate() and solve()) on the data, Calkulate contains some plotting functions to help visualise the analysis. These can be found in ```/figs/vindta``` and ```/figs/vindta_TA_only```. DIC drift corrections are also available in ```/figs/vindta/drift_correction```.
 
