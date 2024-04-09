@@ -80,8 +80,6 @@ df["SMA"] = df["pH_corrected"].rolling(60, min_periods=1).mean()
 df["SMA_uncertainty"] = df["pH_uncertainty"].rolling(60, min_periods=1).mean()
 
 #%% === Plotting
-import matplotlib.dates as mdates
-
 # Create broken axes plot with adjusted spacing
 fig = plt.figure(figsize=(6, 4), dpi=300)
 
