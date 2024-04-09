@@ -2,7 +2,8 @@ import pandas as pd
 from datetime import datetime
 
 # Load underway pH data
-df = pd.read_csv("data/processing/optode/A10_uws_correct_pH.csv")
+# df = pd.read_csv("data/processing/optode/A10_uws_correct_pH.csv")
+df = pd.read_csv("data/processing/optode/A17_uws_correct_pH_bootstrapping.csv")
 
 # Create EXPOCODE and Cruise ID column
 df["EXPOCODE"] = "06S220220218"
@@ -32,7 +33,8 @@ rn = {
     "lon": "Longitude",
     "SBE38_water_temp": "Temperature",
     "SBE45_sal": "Salinity",
-    "pH_optode_corrected": "pH_TS_measured (optode)",
+    "pH_corrected": "pH_TS_measured (optode)",
+    "pH_uncertainty": "pH_TS_measured (optode) uncertainty"
 }
 df = df.rename(columns=rn)
 
@@ -52,6 +54,7 @@ df = df[
         "TEMP_pH",
         "Salinity",
         "pH_TS_measured (optode)",
+        "pH_TS_measured (optode) uncertainty",
         "pH_flag",
     ]
 ]
@@ -83,6 +86,7 @@ units = {
     "TEMP_pH": "[deg_C",
     "Salinity": "n.a.",
     "pH_TS_measured (optode)": "n.a.",
+    "pH_TS_measured (optode) uncertainty": "n.a.",
     "pH_flag": "n.a.",
 }
 
@@ -117,7 +121,8 @@ info_lines = [
     "#  ",
 ]
 
-filename = "data/_results/SO289_UWS_time_series_V2.csv"
+# filename = "data/_results/SO289_UWS_time_series_V2.csv"
+filename = "data/_results/SO289_UWS_time_series_V2_uncertainty.csv"
 
 # Write the info lines
 with open(filename, "w") as f:

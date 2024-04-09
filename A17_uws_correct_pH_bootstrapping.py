@@ -74,15 +74,19 @@ bootstrapped_ph_df = pd.DataFrame(bootstrapped_ph_values).T  # Transpose to alig
 # Calculate standard deviation for uncertainty
 df["pH_uncertainty"] = bootstrapped_ph_df.std(axis=1)
 
+# Save as csv
+df.to_csv("data/processing/optode/A17_uws_correct_pH_bootstrapping.csv", index=False)
+
 # === SIMPLE MOVING AVERAGE
 # Compute simple moving average (SMA) over period of 30 minutes
 df["SMA"] = df["pH_corrected"].rolling(60, min_periods=1).mean()
 df["SMA_uncertainty"] = df["pH_uncertainty"].rolling(60, min_periods=1).mean()
 
-#%% === Plotting
+# === Plotting
 # Create broken axes plot with adjusted spacing
 fig = plt.figure(figsize=(6, 4), dpi=300)
 
+# Define start and end of the xaxis break
 start_break = datetime.datetime(2022, 3, 6)
 end_break = datetime.datetime(2022, 3, 29)
 
@@ -96,16 +100,18 @@ right_xlim = (end_break, df["date_time"][L].max())
 # Create broken axes plot with adjusted spacing and separate x-axis limits
 bax = brokenaxes(xlims=(left_xlim, right_xlim), hspace=0.05, d=0, width_ratios=[2, 1], wspace=0.05)
 
+# Plot the stuff we're interested in
 L = df["SMA"].notnull()
-bax.scatter(df["date_time"][L], df["pH_insitu_ta_est"][L], s=0.1, label="Original pH", alpha=0.6)
-bax.scatter(df["date_time"][L], df["SMA"][L], s=0.1, label="Corrected pH", color='red', alpha=0.6)
-bax.fill_between(df["date_time"][L], df["SMA"][L] - df["SMA_uncertainty"][L], df["SMA"][L] + df["SMA_uncertainty"][L], color='red', alpha=0.2, label="Uncertainty")
-bax.scatter(subsamples_original["date_time"], subsamples_original["pH_total_est_TA_DIC"], color='k', label='Subsamples', s=6, alpha=0.6, edgecolor='black', zorder=5)
+bax.scatter(df["date_time"][L], df["pH_insitu_ta_est"][L], s=0.1, label="Uncorrected pH", color='xkcd:light pink', alpha=0.6)
+bax.scatter(df["date_time"][L], df["SMA"][L], s=0.1, label="Corrected pH", color='b', alpha=0.6)
+bax.fill_between(df["date_time"][L], df["SMA"][L] - df["SMA_uncertainty"][L], df["SMA"][L] + df["SMA_uncertainty"][L], color='b', alpha=0.2)
+bax.scatter(subsamples_original["date_time"], subsamples_original["pH_total_est_TA_DIC"], color='k', label='Subsamples $pH_{TA/DIC}$', s=20, alpha=0.6, edgecolor='k', zorder=6)
 
 # Draw vertical lines at the break points
-bax.axvline(start_break, color='black', linewidth=2)
-bax.axvline(end_break, color='black', linewidth=2)
+bax.axvline(start_break, color='k', linewidth=1.2)
+bax.axvline(end_break, color='k', linewidth=1.2)
 
+# === BELOW IS JUST TO MAKE THE PLOT LOOK PRETTY
 # Create right and top axis
 bax2 = bax.twinx()[0]  # Get the first axes object from the list
 bax3 = bax.twiny()[0]  # Get the first axes object from the list
@@ -113,21 +119,49 @@ bax3 = bax.twiny()[0]  # Get the first axes object from the list
 bax2.set_ylabel('')
 bax3.set_xlabel('')
 
-# Hide the ticks and labels for the top and right axes
-bax2.tick_params(axis='y', which='both', left=False, right=False, labelleft=False, labelright=False)
-bax2.tick_params(axis='x', which='both', left=False, right=False, labelleft=False, labelright=False)
+bax2.set_yticks([])
+bax3.set_xticks([])
 
-bax3.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False, labeltop=False)
-bax3.tick_params(axis='y', which='both', bottom=False, top=False, labelbottom=False, labeltop=False)
+bax2.set_yticklabels([])
+bax3.set_xticklabels([])
 
 # Hide the right and top spines
-bax2.spines['right'].set_visible(False)
-bax2.spines['left'].set_visible(False)
-bax3.spines['bottom'].set_visible(False)
-bax3.spines['top'].set_visible(False)
+# bax2.spines['right'].set_visible(False)
+# bax2.spines['left'].set_visible(False)
+# bax3.spines['bottom'].set_visible(False)
+# bax3.spines['top'].set_visible(False)
 
+# Now, loop through each subplot in your broken axis to adjust the labels
+for ax in bax.axs:
+    # Get all the current x-tick labels
+    labels = ax.get_xticklabels()
+    
+    # Create a new list of labels, where you replace specific dates with an empty string
+    new_labels = [label if label.get_text() != '2022-03-29' else '' for label in labels]
+    
+    # Set the modified list of labels back to the axis
+    ax.set_xticklabels(new_labels)
+
+# Add a legend
+# Get handles and labels
+handles, labels = ax.get_legend_handles_labels()
+
+# Modify the properties of the first two legend handles
+# Create custom legend artists with the desired marker scale
+from matplotlib.lines import Line2D
+custom_handles = [
+    Line2D([0], [0], marker='o', color='w', label='Uncorrected pH', markersize=6, markerfacecolor='xkcd:light pink'),
+    Line2D([0], [0], marker='o', color='w', label='Corrected pH', markersize=6, markerfacecolor='b'),
+] + handles[2:]  # Append other handles without modification
+
+# Create the legend with the custom handles
+legend = bax.legend(handles=custom_handles, loc="upper left")
+
+# Improve plot
 bax.set_ylabel("$pH_{total}$")
 bax.set_ylim(7.9, 8.15)
 bax.grid(alpha=0.3)
-bax.legend(loc="upper left")
 fig.autofmt_xdate()
+
+plt.show()
+
