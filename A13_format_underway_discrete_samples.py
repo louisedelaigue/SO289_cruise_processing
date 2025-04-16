@@ -3,7 +3,8 @@ import re
 from datetime import datetime
 
 # Load discrete samples data
-df = pd.read_csv("data/processing/vindta/SO289_underway_TA_DIC_only_results.csv")
+# df = pd.read_csv("data/processing/vindta/SO289_underway_TA_DIC_only_results.csv")
+df = pd.read_csv("data/processing/vindta/SO289_underway_TA_DIC_only_results_with_uncertainty.csv")
 
 # Convert to datetime object
 df["date_time"] = pd.to_datetime(df["date_time"])
@@ -141,7 +142,8 @@ info_lines = [
     "#  ",
 ]
 
-filename = "data/_results/SO289_UWS_discrete_samples_V2.csv"
+# filename = "data/_results/SO289_UWS_discrete_samples_V2.csv"
+filename = "data/_results/SO289_UWS_discrete_samples_V2_uncertainty.csv"
 
 # Write the info lines
 with open(filename, "w") as f:

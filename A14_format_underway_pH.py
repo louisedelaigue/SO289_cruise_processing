@@ -3,7 +3,7 @@ from datetime import datetime
 
 # Load underway pH data
 # df = pd.read_csv("data/processing/optode/A10_uws_correct_pH.csv")
-df = pd.read_csv("data/processing/optode/A17_uws_correct_pH_bootstrapping.csv")
+df = pd.read_csv("data/processing/optode/A17_uws_correct_pH_bootstrapping_subsaomples_uncertainty.csv")
 
 # Create EXPOCODE and Cruise ID column
 df["EXPOCODE"] = "06S220220218"

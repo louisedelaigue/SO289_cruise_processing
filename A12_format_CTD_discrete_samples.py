@@ -96,6 +96,7 @@ df = df[
         "DIC_flag",
         "DIC_ONLY",
         "DIC_ONLY_flag",
+        "oxygen"
     ]
 ]
 
@@ -126,6 +127,7 @@ units = {
     "DIC_flag": "n.a.",
     "DIC_ONLY": "[umol/kg]",
     "DIC_ONLY_flag": "n.a.",
+    "oxygen": "[umol/kg]"
 }
 
 # Store the current column names
@@ -163,7 +165,7 @@ info_lines = [
     "#  ",
 ]
 
-filename = "data/_results/SO289_CTD_discrete_samples_V6.csv"
+filename = "data/_results/SO289_CTD_discrete_samples_V6_with_oxy.csv"
 
 # Write the info lines
 with open(filename, "w") as f:

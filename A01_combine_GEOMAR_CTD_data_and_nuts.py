@@ -101,4 +101,4 @@ df["nitrate"] = df["nitrate"] / df["density"]
 df.sort_values(by=["station", "niskin"], inplace=True)
 
 # Save as csv
-df.to_csv("data/processing/A01_combine_GEOMAR_CTD_data_and_nuts.csv", index=False)
+# df.to_csv("data/processing/A01_combine_GEOMAR_CTD_data_and_nuts.csv", index=False)
